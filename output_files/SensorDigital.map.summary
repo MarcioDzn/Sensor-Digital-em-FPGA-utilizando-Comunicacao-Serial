@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Aug 29 21:44:33 2023
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : SensorDigital
+Top-level Entity Name : uart
+Family : Cyclone IV E
+Total logic elements : 133
+    Total combinational functions : 116
+    Dedicated logic registers : 66
+Total registers : 66
+Total pins : 23
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

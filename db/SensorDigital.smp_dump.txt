@@ -1,0 +1,13 @@
+
+State Machine - |uart|receiver:uart_rx|state
+Name state.RX_STATE_START state.RX_STATE_STOP state.RX_STATE_DATA 
+state.RX_STATE_START 0 0 0 
+state.RX_STATE_DATA 1 0 1 
+state.RX_STATE_STOP 1 1 0 
+
+State Machine - |uart|transmitter:uart_tx|state
+Name state.STATE_STOP state.STATE_DATA state.STATE_START state.STATE_IDLE 
+state.STATE_IDLE 0 0 0 0 
+state.STATE_START 0 0 1 1 
+state.STATE_DATA 0 1 0 1 
+state.STATE_STOP 1 0 0 1 

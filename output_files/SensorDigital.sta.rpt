@@ -1,0 +1,1262 @@
+Timing Analyzer report for SensorDigital
+Tue Aug 29 21:44:46 2023
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk_50m'
+ 13. Slow 1200mV 85C Model Hold: 'clk_50m'
+ 14. Slow 1200mV 85C Model Metastability Summary
+ 15. Slow 1200mV 0C Model Fmax Summary
+ 16. Slow 1200mV 0C Model Setup Summary
+ 17. Slow 1200mV 0C Model Hold Summary
+ 18. Slow 1200mV 0C Model Recovery Summary
+ 19. Slow 1200mV 0C Model Removal Summary
+ 20. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 21. Slow 1200mV 0C Model Setup: 'clk_50m'
+ 22. Slow 1200mV 0C Model Hold: 'clk_50m'
+ 23. Slow 1200mV 0C Model Metastability Summary
+ 24. Fast 1200mV 0C Model Setup Summary
+ 25. Fast 1200mV 0C Model Hold Summary
+ 26. Fast 1200mV 0C Model Recovery Summary
+ 27. Fast 1200mV 0C Model Removal Summary
+ 28. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 29. Fast 1200mV 0C Model Setup: 'clk_50m'
+ 30. Fast 1200mV 0C Model Hold: 'clk_50m'
+ 31. Fast 1200mV 0C Model Metastability Summary
+ 32. Multicorner Timing Analysis Summary
+ 33. Board Trace Model Assignments
+ 34. Input Transition Times
+ 35. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 36. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 37. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 38. Setup Transfers
+ 39. Hold Transfers
+ 40. Report TCCS
+ 41. Report RSKM
+ 42. Unconstrained Paths Summary
+ 43. Clock Status Summary
+ 44. Unconstrained Input Ports
+ 45. Unconstrained Output Ports
+ 46. Unconstrained Input Ports
+ 47. Unconstrained Output Ports
+ 48. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++--------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                        ;
++-----------------------+--------------------------------------------------------+
+; Quartus Prime Version ; Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                                 ;
+; Revision Name         ; SensorDigital                                          ;
+; Device Family         ; Cyclone IV E                                           ;
+; Device Name           ; EP4CE40F23C7                                           ;
+; Timing Models         ; Final                                                  ;
+; Delay Model           ; Combined                                               ;
+; Rise/Fall Delays      ; Enabled                                                ;
++-----------------------+--------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.03        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.5%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                              ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets     ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; clk_50m    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk_50m } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 283.85 MHz ; 250.0 MHz       ; clk_50m    ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++---------+--------+------------------+
+; Clock   ; Slack  ; End Point TNS    ;
++---------+--------+------------------+
+; clk_50m ; -2.523 ; -116.816         ;
++---------+--------+------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++---------+-------+------------------+
+; Clock   ; Slack ; End Point TNS    ;
++---------+-------+------------------+
+; clk_50m ; 0.392 ; 0.000            ;
++---------+-------+------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++---------+--------+--------------------------------+
+; Clock   ; Slack  ; End Point TNS                  ;
++---------+--------+--------------------------------+
+; clk_50m ; -3.000 ; -87.810                        ;
++---------+--------+--------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk_50m'                                                                                                                   ;
++--------+-----------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                         ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.523 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.431      ;
+; -2.523 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.431      ;
+; -2.523 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.431      ;
+; -2.521 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.429      ;
+; -2.516 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.424      ;
+; -2.516 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.424      ;
+; -2.516 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.424      ;
+; -2.514 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.422      ;
+; -2.420 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.328      ;
+; -2.420 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.328      ;
+; -2.420 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.328      ;
+; -2.418 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.326      ;
+; -2.357 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.723      ;
+; -2.349 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 1.000        ; -0.091     ; 3.256      ;
+; -2.349 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 1.000        ; -0.091     ; 3.256      ;
+; -2.349 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 1.000        ; -0.091     ; 3.256      ;
+; -2.342 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 1.000        ; -0.091     ; 3.249      ;
+; -2.342 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 1.000        ; -0.091     ; 3.249      ;
+; -2.342 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 1.000        ; -0.091     ; 3.249      ;
+; -2.330 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.696      ;
+; -2.329 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.048     ; 3.279      ;
+; -2.322 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.048     ; 3.272      ;
+; -2.319 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.685      ;
+; -2.302 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.179      ;
+; -2.302 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.179      ;
+; -2.302 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.179      ;
+; -2.302 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.179      ;
+; -2.302 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.179      ;
+; -2.302 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.179      ;
+; -2.302 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.179      ;
+; -2.295 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.172      ;
+; -2.295 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.172      ;
+; -2.295 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.172      ;
+; -2.295 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.172      ;
+; -2.295 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.172      ;
+; -2.295 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.172      ;
+; -2.295 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.172      ;
+; -2.264 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.071     ; 3.191      ;
+; -2.259 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.071     ; 3.186      ;
+; -2.257 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.071     ; 3.184      ;
+; -2.252 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.071     ; 3.179      ;
+; -2.248 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.156      ;
+; -2.248 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.156      ;
+; -2.248 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.156      ;
+; -2.246 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.090     ; 3.154      ;
+; -2.246 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 1.000        ; -0.091     ; 3.153      ;
+; -2.246 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 1.000        ; -0.091     ; 3.153      ;
+; -2.246 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 1.000        ; -0.091     ; 3.153      ;
+; -2.226 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.048     ; 3.176      ;
+; -2.210 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.557      ;
+; -2.210 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.557      ;
+; -2.210 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.557      ;
+; -2.208 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.555      ;
+; -2.206 ; baud_rate_gen:uart_baud|rx_acc[5] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.572      ;
+; -2.199 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.076      ;
+; -2.199 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.076      ;
+; -2.199 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.076      ;
+; -2.199 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.076      ;
+; -2.199 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.076      ;
+; -2.199 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.076      ;
+; -2.199 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.121     ; 3.076      ;
+; -2.192 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.558      ;
+; -2.192 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.558      ;
+; -2.189 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.123     ; 3.064      ;
+; -2.189 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.123     ; 3.064      ;
+; -2.189 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.123     ; 3.064      ;
+; -2.189 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.123     ; 3.064      ;
+; -2.188 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.554      ;
+; -2.183 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.549      ;
+; -2.183 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.530      ;
+; -2.183 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.530      ;
+; -2.183 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.530      ;
+; -2.182 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.123     ; 3.057      ;
+; -2.182 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.123     ; 3.057      ;
+; -2.182 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.123     ; 3.057      ;
+; -2.182 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.123     ; 3.057      ;
+; -2.181 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.107     ; 3.072      ;
+; -2.181 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.528      ;
+; -2.178 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.544      ;
+; -2.174 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.107     ; 3.065      ;
+; -2.172 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.519      ;
+; -2.172 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.519      ;
+; -2.172 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.519      ;
+; -2.172 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.332      ; 3.502      ;
+; -2.170 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.536      ;
+; -2.170 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.349      ; 3.517      ;
+; -2.170 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.536      ;
+; -2.167 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[5]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.533      ;
+; -2.165 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.531      ;
+; -2.161 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.071     ; 3.088      ;
+; -2.161 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.527      ;
+; -2.158 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.524      ;
+; -2.158 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.524      ;
+; -2.156 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.071     ; 3.083      ;
+; -2.154 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.520      ;
+; -2.153 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.519      ;
+; -2.153 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.519      ;
+; -2.150 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.516      ;
+; -2.145 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.332      ; 3.475      ;
+; -2.144 ; baud_rate_gen:uart_baud|rx_acc[6] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.368      ; 3.510      ;
++--------+-----------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk_50m'                                                                                                                       ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                             ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.392 ; receiver:uart_rx|scratch[7]           ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.091      ; 0.669      ;
+; 0.392 ; receiver:uart_rx|scratch[6]           ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.091      ; 0.669      ;
+; 0.392 ; receiver:uart_rx|scratch[5]           ; receiver:uart_rx|scratch[5]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.091      ; 0.669      ;
+; 0.392 ; receiver:uart_rx|scratch[4]           ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.091      ; 0.669      ;
+; 0.392 ; receiver:uart_rx|scratch[3]           ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.091      ; 0.669      ;
+; 0.392 ; receiver:uart_rx|scratch[2]           ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.091      ; 0.669      ;
+; 0.392 ; receiver:uart_rx|scratch[1]           ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.091      ; 0.669      ;
+; 0.393 ; receiver:uart_rx|rdy                  ; receiver:uart_rx|rdy                  ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.393 ; receiver:uart_rx|sample[3]            ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.393 ; receiver:uart_rx|sample[1]            ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.393 ; receiver:uart_rx|sample[0]            ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.393 ; receiver:uart_rx|sample[2]            ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.393 ; transmitter:uart_tx|bitpos[0]         ; transmitter:uart_tx|bitpos[0]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.393 ; transmitter:uart_tx|bitpos[1]         ; transmitter:uart_tx|bitpos[1]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.393 ; transmitter:uart_tx|bitpos[2]         ; transmitter:uart_tx|bitpos[2]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.393 ; transmitter:uart_tx|state.STATE_IDLE  ; transmitter:uart_tx|state.STATE_IDLE  ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.394 ; receiver:uart_rx|scratch[0]           ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 0.669      ;
+; 0.394 ; receiver:uart_rx|bitpos[2]            ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 0.669      ;
+; 0.394 ; receiver:uart_rx|bitpos[1]            ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 0.669      ;
+; 0.394 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|state.STATE_STOP  ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 0.669      ;
+; 0.394 ; transmitter:uart_tx|state.STATE_START ; transmitter:uart_tx|state.STATE_START ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 0.669      ;
+; 0.399 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 0.674      ;
+; 0.455 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 0.730      ;
+; 0.458 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.734      ;
+; 0.458 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 0.733      ;
+; 0.483 ; receiver:uart_rx|scratch[0]           ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.151      ; 0.820      ;
+; 0.652 ; baud_rate_gen:uart_baud|rx_acc[3]     ; baud_rate_gen:uart_baud|rx_acc[3]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.911      ;
+; 0.656 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.932      ;
+; 0.663 ; baud_rate_gen:uart_baud|tx_acc[5]     ; baud_rate_gen:uart_baud|tx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.922      ;
+; 0.664 ; baud_rate_gen:uart_baud|tx_acc[2]     ; baud_rate_gen:uart_baud|tx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.923      ;
+; 0.664 ; baud_rate_gen:uart_baud|tx_acc[1]     ; baud_rate_gen:uart_baud|tx_acc[1]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.923      ;
+; 0.665 ; baud_rate_gen:uart_baud|tx_acc[11]    ; baud_rate_gen:uart_baud|tx_acc[11]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.924      ;
+; 0.666 ; baud_rate_gen:uart_baud|tx_acc[9]     ; baud_rate_gen:uart_baud|tx_acc[9]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.925      ;
+; 0.666 ; baud_rate_gen:uart_baud|tx_acc[7]     ; baud_rate_gen:uart_baud|tx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.925      ;
+; 0.669 ; baud_rate_gen:uart_baud|rx_acc[4]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.928      ;
+; 0.669 ; baud_rate_gen:uart_baud|tx_acc[8]     ; baud_rate_gen:uart_baud|tx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.928      ;
+; 0.671 ; receiver:uart_rx|bitpos[1]            ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 0.946      ;
+; 0.683 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.942      ;
+; 0.687 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[6]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.946      ;
+; 0.688 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.947      ;
+; 0.692 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[1]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.951      ;
+; 0.692 ; baud_rate_gen:uart_baud|rx_acc[0]     ; baud_rate_gen:uart_baud|rx_acc[0]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.951      ;
+; 0.693 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 0.952      ;
+; 0.707 ; transmitter:uart_tx|bitpos[0]         ; transmitter:uart_tx|bitpos[1]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 0.983      ;
+; 0.726 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.057      ; 0.969      ;
+; 0.727 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.057      ; 0.970      ;
+; 0.730 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.057      ; 0.973      ;
+; 0.731 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.057      ; 0.974      ;
+; 0.809 ; receiver:uart_rx|state.RX_STATE_STOP  ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 1.085      ;
+; 0.829 ; baud_rate_gen:uart_baud|rx_acc[5]     ; baud_rate_gen:uart_baud|rx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.088      ;
+; 0.835 ; receiver:uart_rx|sample[0]            ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 1.111      ;
+; 0.856 ; receiver:uart_rx|scratch[4]           ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 1.080      ;
+; 0.857 ; receiver:uart_rx|scratch[3]           ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 1.081      ;
+; 0.876 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|state.STATE_IDLE  ; clk_50m      ; clk_50m     ; 0.000        ; 0.100      ; 1.162      ;
+; 0.903 ; receiver:uart_rx|scratch[5]           ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 1.127      ;
+; 0.920 ; transmitter:uart_tx|state.STATE_DATA  ; transmitter:uart_tx|bitpos[0]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.103      ; 1.209      ;
+; 0.921 ; transmitter:uart_tx|state.STATE_DATA  ; transmitter:uart_tx|bitpos[1]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.103      ; 1.210      ;
+; 0.924 ; transmitter:uart_tx|state.STATE_DATA  ; transmitter:uart_tx|bitpos[2]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.103      ; 1.213      ;
+; 0.933 ; transmitter:uart_tx|state.STATE_IDLE  ; transmitter:uart_tx|tx                ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 1.209      ;
+; 0.934 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 1.209      ;
+; 0.954 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|tx                ; clk_50m      ; clk_50m     ; 0.000        ; 0.100      ; 1.240      ;
+; 0.969 ; baud_rate_gen:uart_baud|rx_acc[3]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.228      ;
+; 0.981 ; baud_rate_gen:uart_baud|tx_acc[1]     ; baud_rate_gen:uart_baud|tx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.240      ;
+; 0.983 ; baud_rate_gen:uart_baud|tx_acc[7]     ; baud_rate_gen:uart_baud|tx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.242      ;
+; 0.994 ; baud_rate_gen:uart_baud|tx_acc[0]     ; baud_rate_gen:uart_baud|tx_acc[1]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.253      ;
+; 0.996 ; baud_rate_gen:uart_baud|tx_acc[8]     ; baud_rate_gen:uart_baud|tx_acc[9]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.255      ;
+; 0.996 ; baud_rate_gen:uart_baud|rx_acc[4]     ; baud_rate_gen:uart_baud|rx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.255      ;
+; 0.999 ; baud_rate_gen:uart_baud|rx_acc[6]     ; baud_rate_gen:uart_baud|rx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.258      ;
+; 0.999 ; baud_rate_gen:uart_baud|tx_acc[0]     ; baud_rate_gen:uart_baud|tx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.258      ;
+; 1.003 ; baud_rate_gen:uart_baud|rx_acc[2]     ; baud_rate_gen:uart_baud|rx_acc[3]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.262      ;
+; 1.008 ; baud_rate_gen:uart_baud|rx_acc[2]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.267      ;
+; 1.016 ; receiver:uart_rx|sample[1]            ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 1.292      ;
+; 1.030 ; baud_rate_gen:uart_baud|tx_acc[11]    ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.495      ; 1.711      ;
+; 1.043 ; receiver:uart_rx|scratch[7]           ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 1.267      ;
+; 1.050 ; receiver:uart_rx|scratch[2]           ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 1.274      ;
+; 1.054 ; receiver:uart_rx|bitpos[1]            ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 1.329      ;
+; 1.055 ; baud_rate_gen:uart_baud|tx_acc[10]    ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.494      ; 1.735      ;
+; 1.059 ; baud_rate_gen:uart_baud|tx_acc[8]     ; transmitter:uart_tx|state.STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.496      ; 1.741      ;
+; 1.073 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|state.STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.087      ; 1.346      ;
+; 1.083 ; receiver:uart_rx|scratch[6]           ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 1.307      ;
+; 1.083 ; receiver:uart_rx|scratch[1]           ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 1.307      ;
+; 1.088 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.111      ; 1.385      ;
+; 1.089 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[5]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.111      ; 1.386      ;
+; 1.090 ; baud_rate_gen:uart_baud|rx_acc[3]     ; baud_rate_gen:uart_baud|rx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.349      ;
+; 1.090 ; baud_rate_gen:uart_baud|rx_acc[1]     ; baud_rate_gen:uart_baud|rx_acc[3]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.349      ;
+; 1.091 ; transmitter:uart_tx|state.STATE_START ; transmitter:uart_tx|state.STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.087      ; 1.364      ;
+; 1.095 ; baud_rate_gen:uart_baud|rx_acc[1]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.354      ;
+; 1.096 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.111      ; 1.393      ;
+; 1.097 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.111      ; 1.394      ;
+; 1.098 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.111      ; 1.395      ;
+; 1.099 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.111      ; 1.396      ;
+; 1.099 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.111      ; 1.396      ;
+; 1.102 ; baud_rate_gen:uart_baud|tx_acc[5]     ; baud_rate_gen:uart_baud|tx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.361      ;
+; 1.104 ; baud_rate_gen:uart_baud|tx_acc[9]     ; baud_rate_gen:uart_baud|tx_acc[11]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.363      ;
+; 1.104 ; baud_rate_gen:uart_baud|tx_acc[7]     ; baud_rate_gen:uart_baud|tx_acc[9]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.363      ;
+; 1.105 ; baud_rate_gen:uart_baud|tx_acc[3]     ; baud_rate_gen:uart_baud|tx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.364      ;
+; 1.106 ; baud_rate_gen:uart_baud|tx_acc[8]     ; transmitter:uart_tx|state.STATE_IDLE  ; clk_50m      ; clk_50m     ; 0.000        ; 0.509      ; 1.801      ;
+; 1.107 ; baud_rate_gen:uart_baud|rx_acc[8]     ; baud_rate_gen:uart_baud|rx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.366      ;
+; 1.107 ; baud_rate_gen:uart_baud|tx_acc[5]     ; baud_rate_gen:uart_baud|tx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.073      ; 1.366      ;
+; 1.109 ; receiver:uart_rx|bitpos[3]            ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.089      ; 1.384      ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                        ;
++-----------+-----------------+------------+---------------------------------------------------------------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note                                                          ;
++-----------+-----------------+------------+---------------------------------------------------------------+
+; 312.7 MHz ; 250.0 MHz       ; clk_50m    ; limit due to minimum period restriction (max I/O toggle rate) ;
++-----------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++---------+--------+-----------------+
+; Clock   ; Slack  ; End Point TNS   ;
++---------+--------+-----------------+
+; clk_50m ; -2.198 ; -99.847         ;
++---------+--------+-----------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++---------+-------+-----------------+
+; Clock   ; Slack ; End Point TNS   ;
++---------+-------+-----------------+
+; clk_50m ; 0.344 ; 0.000           ;
++---------+-------+-----------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++---------+--------+-------------------------------+
+; Clock   ; Slack  ; End Point TNS                 ;
++---------+--------+-------------------------------+
+; clk_50m ; -3.000 ; -87.810                       ;
++---------+--------+-------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk_50m'                                                                                                                    ;
++--------+-----------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                         ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.198 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.115      ;
+; -2.197 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.114      ;
+; -2.197 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.114      ;
+; -2.196 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.113      ;
+; -2.190 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.107      ;
+; -2.189 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.106      ;
+; -2.189 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.106      ;
+; -2.188 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.105      ;
+; -2.109 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.026      ;
+; -2.108 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.025      ;
+; -2.108 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.025      ;
+; -2.107 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 3.024      ;
+; -2.090 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.432      ;
+; -2.070 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.412      ;
+; -2.061 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.403      ;
+; -2.025 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.942      ;
+; -2.025 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.942      ;
+; -2.025 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.942      ;
+; -2.017 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.934      ;
+; -2.017 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.934      ;
+; -2.017 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.934      ;
+; -2.000 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.044     ; 2.955      ;
+; -1.992 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.044     ; 2.947      ;
+; -1.986 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.872      ;
+; -1.986 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.872      ;
+; -1.986 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.872      ;
+; -1.986 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.872      ;
+; -1.986 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.872      ;
+; -1.986 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.872      ;
+; -1.986 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.872      ;
+; -1.978 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.864      ;
+; -1.978 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.864      ;
+; -1.978 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.864      ;
+; -1.978 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.864      ;
+; -1.978 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.864      ;
+; -1.978 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.864      ;
+; -1.978 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.864      ;
+; -1.959 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.281      ;
+; -1.959 ; baud_rate_gen:uart_baud|rx_acc[5] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.301      ;
+; -1.958 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.280      ;
+; -1.958 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.280      ;
+; -1.957 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.279      ;
+; -1.953 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.870      ;
+; -1.952 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.869      ;
+; -1.952 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.869      ;
+; -1.951 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.868      ;
+; -1.939 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.261      ;
+; -1.938 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.260      ;
+; -1.938 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.260      ;
+; -1.937 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.259      ;
+; -1.936 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.853      ;
+; -1.936 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.853      ;
+; -1.936 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 1.000        ; -0.082     ; 2.853      ;
+; -1.931 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.303      ; 3.233      ;
+; -1.930 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.252      ;
+; -1.929 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.251      ;
+; -1.929 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.251      ;
+; -1.928 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.323      ; 3.250      ;
+; -1.927 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.062     ; 2.864      ;
+; -1.927 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.269      ;
+; -1.923 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.265      ;
+; -1.922 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.062     ; 2.859      ;
+; -1.919 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.261      ;
+; -1.919 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.062     ; 2.856      ;
+; -1.915 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[5]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.257      ;
+; -1.915 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.257      ;
+; -1.914 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.256      ;
+; -1.914 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.062     ; 2.851      ;
+; -1.913 ; baud_rate_gen:uart_baud|rx_acc[6] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.255      ;
+; -1.911 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.044     ; 2.866      ;
+; -1.911 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.303      ; 3.213      ;
+; -1.907 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.249      ;
+; -1.903 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.245      ;
+; -1.902 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.303      ; 3.204      ;
+; -1.901 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.114     ; 2.786      ;
+; -1.901 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.114     ; 2.786      ;
+; -1.901 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.114     ; 2.786      ;
+; -1.901 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.114     ; 2.786      ;
+; -1.899 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.241      ;
+; -1.898 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.240      ;
+; -1.897 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.783      ;
+; -1.897 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.783      ;
+; -1.897 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.783      ;
+; -1.897 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.783      ;
+; -1.897 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.783      ;
+; -1.897 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.783      ;
+; -1.897 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.113     ; 2.783      ;
+; -1.895 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[5]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.237      ;
+; -1.895 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.237      ;
+; -1.894 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.236      ;
+; -1.894 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.236      ;
+; -1.890 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.232      ;
+; -1.887 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.114     ; 2.772      ;
+; -1.887 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.114     ; 2.772      ;
+; -1.887 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.114     ; 2.772      ;
+; -1.887 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.114     ; 2.772      ;
+; -1.886 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[5]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.228      ;
+; -1.886 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.228      ;
+; -1.885 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.343      ; 3.227      ;
+; -1.865 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.102     ; 2.762      ;
++--------+-----------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk_50m'                                                                                                                        ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                             ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.344 ; receiver:uart_rx|scratch[7]           ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|scratch[6]           ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|scratch[5]           ; receiver:uart_rx|scratch[5]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|scratch[4]           ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|scratch[3]           ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|scratch[2]           ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|scratch[1]           ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|rdy                  ; receiver:uart_rx|rdy                  ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|sample[3]            ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|sample[1]            ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|sample[0]            ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; receiver:uart_rx|sample[2]            ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; transmitter:uart_tx|bitpos[0]         ; transmitter:uart_tx|bitpos[0]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; transmitter:uart_tx|bitpos[1]         ; transmitter:uart_tx|bitpos[1]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; transmitter:uart_tx|bitpos[2]         ; transmitter:uart_tx|bitpos[2]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; transmitter:uart_tx|state.STATE_IDLE  ; transmitter:uart_tx|state.STATE_IDLE  ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.597      ;
+; 0.345 ; receiver:uart_rx|scratch[0]           ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 0.597      ;
+; 0.345 ; receiver:uart_rx|bitpos[2]            ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 0.597      ;
+; 0.345 ; receiver:uart_rx|bitpos[1]            ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 0.597      ;
+; 0.345 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|state.STATE_STOP  ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 0.597      ;
+; 0.345 ; transmitter:uart_tx|state.STATE_START ; transmitter:uart_tx|state.STATE_START ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 0.597      ;
+; 0.356 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 0.608      ;
+; 0.410 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 0.662      ;
+; 0.413 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.666      ;
+; 0.413 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 0.665      ;
+; 0.439 ; receiver:uart_rx|scratch[0]           ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.141      ; 0.751      ;
+; 0.597 ; baud_rate_gen:uart_baud|rx_acc[3]     ; baud_rate_gen:uart_baud|rx_acc[3]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.833      ;
+; 0.602 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.855      ;
+; 0.606 ; baud_rate_gen:uart_baud|tx_acc[5]     ; baud_rate_gen:uart_baud|tx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.842      ;
+; 0.607 ; baud_rate_gen:uart_baud|tx_acc[2]     ; baud_rate_gen:uart_baud|tx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.843      ;
+; 0.609 ; baud_rate_gen:uart_baud|tx_acc[1]     ; baud_rate_gen:uart_baud|tx_acc[1]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.845      ;
+; 0.610 ; baud_rate_gen:uart_baud|tx_acc[11]    ; baud_rate_gen:uart_baud|tx_acc[11]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.846      ;
+; 0.610 ; baud_rate_gen:uart_baud|tx_acc[9]     ; baud_rate_gen:uart_baud|tx_acc[9]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.846      ;
+; 0.610 ; baud_rate_gen:uart_baud|tx_acc[7]     ; baud_rate_gen:uart_baud|tx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.846      ;
+; 0.612 ; baud_rate_gen:uart_baud|rx_acc[4]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.848      ;
+; 0.612 ; baud_rate_gen:uart_baud|tx_acc[8]     ; baud_rate_gen:uart_baud|tx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.848      ;
+; 0.612 ; receiver:uart_rx|bitpos[1]            ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 0.864      ;
+; 0.623 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.859      ;
+; 0.626 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[6]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.862      ;
+; 0.626 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.862      ;
+; 0.630 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[1]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.866      ;
+; 0.632 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.868      ;
+; 0.634 ; baud_rate_gen:uart_baud|rx_acc[0]     ; baud_rate_gen:uart_baud|rx_acc[0]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 0.870      ;
+; 0.643 ; transmitter:uart_tx|bitpos[0]         ; transmitter:uart_tx|bitpos[1]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 0.896      ;
+; 0.668 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.049      ; 0.888      ;
+; 0.668 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.049      ; 0.888      ;
+; 0.671 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.049      ; 0.891      ;
+; 0.672 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.049      ; 0.892      ;
+; 0.748 ; receiver:uart_rx|state.RX_STATE_STOP  ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 1.001      ;
+; 0.765 ; receiver:uart_rx|scratch[4]           ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.029      ; 0.965      ;
+; 0.768 ; receiver:uart_rx|scratch[3]           ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.029      ; 0.968      ;
+; 0.769 ; baud_rate_gen:uart_baud|rx_acc[5]     ; baud_rate_gen:uart_baud|rx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.005      ;
+; 0.772 ; receiver:uart_rx|sample[0]            ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 1.025      ;
+; 0.805 ; receiver:uart_rx|scratch[5]           ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.029      ; 1.005      ;
+; 0.814 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|state.STATE_IDLE  ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 1.075      ;
+; 0.846 ; transmitter:uart_tx|state.STATE_IDLE  ; transmitter:uart_tx|tx                ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 1.099      ;
+; 0.847 ; transmitter:uart_tx|state.STATE_DATA  ; transmitter:uart_tx|bitpos[1]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.093      ; 1.111      ;
+; 0.850 ; transmitter:uart_tx|state.STATE_DATA  ; transmitter:uart_tx|bitpos[0]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.093      ; 1.114      ;
+; 0.851 ; transmitter:uart_tx|state.STATE_DATA  ; transmitter:uart_tx|bitpos[2]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.093      ; 1.115      ;
+; 0.857 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 1.109      ;
+; 0.880 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|tx                ; clk_50m      ; clk_50m     ; 0.000        ; 0.090      ; 1.141      ;
+; 0.884 ; baud_rate_gen:uart_baud|rx_acc[3]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.120      ;
+; 0.896 ; baud_rate_gen:uart_baud|tx_acc[1]     ; baud_rate_gen:uart_baud|tx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.132      ;
+; 0.897 ; baud_rate_gen:uart_baud|tx_acc[7]     ; baud_rate_gen:uart_baud|tx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.133      ;
+; 0.898 ; baud_rate_gen:uart_baud|tx_acc[0]     ; baud_rate_gen:uart_baud|tx_acc[1]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.134      ;
+; 0.900 ; baud_rate_gen:uart_baud|tx_acc[8]     ; baud_rate_gen:uart_baud|tx_acc[9]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.136      ;
+; 0.900 ; baud_rate_gen:uart_baud|rx_acc[4]     ; baud_rate_gen:uart_baud|rx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.136      ;
+; 0.901 ; baud_rate_gen:uart_baud|rx_acc[6]     ; baud_rate_gen:uart_baud|rx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.137      ;
+; 0.906 ; baud_rate_gen:uart_baud|rx_acc[2]     ; baud_rate_gen:uart_baud|rx_acc[3]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.142      ;
+; 0.909 ; baud_rate_gen:uart_baud|tx_acc[0]     ; baud_rate_gen:uart_baud|tx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.145      ;
+; 0.917 ; baud_rate_gen:uart_baud|rx_acc[2]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.153      ;
+; 0.931 ; receiver:uart_rx|sample[1]            ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.082      ; 1.184      ;
+; 0.935 ; baud_rate_gen:uart_baud|tx_acc[11]    ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.459      ; 1.565      ;
+; 0.963 ; receiver:uart_rx|scratch[2]           ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.029      ; 1.163      ;
+; 0.963 ; baud_rate_gen:uart_baud|tx_acc[8]     ; transmitter:uart_tx|state.STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.459      ; 1.593      ;
+; 0.965 ; receiver:uart_rx|bitpos[1]            ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 1.217      ;
+; 0.966 ; receiver:uart_rx|scratch[7]           ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.029      ; 1.166      ;
+; 0.966 ; receiver:uart_rx|scratch[6]           ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.029      ; 1.166      ;
+; 0.969 ; baud_rate_gen:uart_baud|tx_acc[10]    ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.459      ; 1.599      ;
+; 0.978 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|state.STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.078      ; 1.227      ;
+; 0.979 ; transmitter:uart_tx|state.STATE_START ; transmitter:uart_tx|state.STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.078      ; 1.228      ;
+; 0.983 ; baud_rate_gen:uart_baud|rx_acc[3]     ; baud_rate_gen:uart_baud|rx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.219      ;
+; 0.983 ; baud_rate_gen:uart_baud|rx_acc[1]     ; baud_rate_gen:uart_baud|rx_acc[3]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.219      ;
+; 0.991 ; baud_rate_gen:uart_baud|tx_acc[5]     ; baud_rate_gen:uart_baud|tx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.227      ;
+; 0.994 ; baud_rate_gen:uart_baud|rx_acc[1]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.230      ;
+; 0.994 ; baud_rate_gen:uart_baud|tx_acc[3]     ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.459      ; 1.624      ;
+; 0.996 ; baud_rate_gen:uart_baud|tx_acc[8]     ; transmitter:uart_tx|state.STATE_IDLE  ; clk_50m      ; clk_50m     ; 0.000        ; 0.471      ; 1.638      ;
+; 0.996 ; baud_rate_gen:uart_baud|tx_acc[9]     ; baud_rate_gen:uart_baud|tx_acc[11]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.232      ;
+; 0.996 ; baud_rate_gen:uart_baud|tx_acc[7]     ; baud_rate_gen:uart_baud|tx_acc[9]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.232      ;
+; 0.997 ; receiver:uart_rx|scratch[1]           ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.029      ; 1.197      ;
+; 0.997 ; baud_rate_gen:uart_baud|tx_acc[3]     ; baud_rate_gen:uart_baud|tx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.233      ;
+; 1.002 ; baud_rate_gen:uart_baud|tx_acc[5]     ; baud_rate_gen:uart_baud|tx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.238      ;
+; 1.005 ; baud_rate_gen:uart_baud|tx_acc[2]     ; baud_rate_gen:uart_baud|tx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.241      ;
+; 1.010 ; baud_rate_gen:uart_baud|rx_acc[4]     ; baud_rate_gen:uart_baud|rx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.246      ;
+; 1.010 ; baud_rate_gen:uart_baud|tx_acc[8]     ; baud_rate_gen:uart_baud|tx_acc[11]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.246      ;
+; 1.012 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.102      ; 1.285      ;
+; 1.013 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[5]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.102      ; 1.286      ;
+; 1.013 ; baud_rate_gen:uart_baud|rx_acc[0]     ; baud_rate_gen:uart_baud|rx_acc[3]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.249      ;
+; 1.015 ; receiver:uart_rx|bitpos[3]            ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.081      ; 1.267      ;
+; 1.016 ; baud_rate_gen:uart_baud|rx_acc[2]     ; baud_rate_gen:uart_baud|rx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.065      ; 1.252      ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++---------+--------+-----------------+
+; Clock   ; Slack  ; End Point TNS   ;
++---------+--------+-----------------+
+; clk_50m ; -0.713 ; -23.821         ;
++---------+--------+-----------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++---------+-------+-----------------+
+; Clock   ; Slack ; End Point TNS   ;
++---------+-------+-----------------+
+; clk_50m ; 0.177 ; 0.000           ;
++---------+-------+-----------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++---------+--------+-------------------------------+
+; Clock   ; Slack  ; End Point TNS                 ;
++---------+--------+-------------------------------+
+; clk_50m ; -3.000 ; -73.626                       ;
++---------+--------+-------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk_50m'                                                                                                                    ;
++--------+-----------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                         ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.713 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.655      ;
+; -0.712 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.654      ;
+; -0.712 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.654      ;
+; -0.711 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.653      ;
+; -0.709 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.651      ;
+; -0.708 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.650      ;
+; -0.708 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.650      ;
+; -0.707 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.649      ;
+; -0.652 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.594      ;
+; -0.651 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.593      ;
+; -0.651 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.593      ;
+; -0.650 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.592      ;
+; -0.645 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.027     ; 1.605      ;
+; -0.641 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.027     ; 1.601      ;
+; -0.638 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 1.000        ; -0.047     ; 1.578      ;
+; -0.638 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 1.000        ; -0.047     ; 1.578      ;
+; -0.638 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 1.000        ; -0.047     ; 1.578      ;
+; -0.634 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 1.000        ; -0.047     ; 1.574      ;
+; -0.634 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 1.000        ; -0.047     ; 1.574      ;
+; -0.634 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 1.000        ; -0.047     ; 1.574      ;
+; -0.627 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.554      ;
+; -0.627 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.554      ;
+; -0.627 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.554      ;
+; -0.627 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.554      ;
+; -0.627 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.554      ;
+; -0.627 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.554      ;
+; -0.627 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.554      ;
+; -0.625 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.781      ;
+; -0.623 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.550      ;
+; -0.623 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.550      ;
+; -0.623 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.550      ;
+; -0.623 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.550      ;
+; -0.623 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.550      ;
+; -0.623 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.550      ;
+; -0.623 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.550      ;
+; -0.620 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.776      ;
+; -0.618 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.774      ;
+; -0.616 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.039     ; 1.564      ;
+; -0.612 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.039     ; 1.560      ;
+; -0.611 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.039     ; 1.559      ;
+; -0.607 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.039     ; 1.555      ;
+; -0.584 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.027     ; 1.544      ;
+; -0.582 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.508      ;
+; -0.582 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.508      ;
+; -0.582 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.508      ;
+; -0.582 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.508      ;
+; -0.578 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.504      ;
+; -0.578 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.504      ;
+; -0.578 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.504      ;
+; -0.578 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.504      ;
+; -0.577 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 1.000        ; -0.047     ; 1.517      ;
+; -0.577 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 1.000        ; -0.047     ; 1.517      ;
+; -0.577 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 1.000        ; -0.047     ; 1.517      ;
+; -0.573 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.515      ;
+; -0.572 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.514      ;
+; -0.572 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.514      ;
+; -0.571 ; receiver:uart_rx|sample[1]        ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.045     ; 1.513      ;
+; -0.569 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.051     ; 1.505      ;
+; -0.566 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.493      ;
+; -0.566 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.493      ;
+; -0.566 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.493      ;
+; -0.566 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.493      ;
+; -0.566 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.493      ;
+; -0.566 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.493      ;
+; -0.566 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 1.000        ; -0.060     ; 1.493      ;
+; -0.565 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.051     ; 1.501      ;
+; -0.559 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.715      ;
+; -0.555 ; baud_rate_gen:uart_baud|rx_acc[5] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.711      ;
+; -0.555 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.039     ; 1.503      ;
+; -0.554 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.710      ;
+; -0.554 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.710      ;
+; -0.552 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.708      ;
+; -0.551 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.707      ;
+; -0.550 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.039     ; 1.498      ;
+; -0.549 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.705      ;
+; -0.549 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.705      ;
+; -0.547 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.703      ;
+; -0.546 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.702      ;
+; -0.546 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.702      ;
+; -0.544 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.700      ;
+; -0.544 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.700      ;
+; -0.542 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.698      ;
+; -0.541 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.697      ;
+; -0.539 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.695      ;
+; -0.536 ; baud_rate_gen:uart_baud|rx_acc[6] ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; 0.169      ; 1.692      ;
+; -0.527 ; receiver:uart_rx|sample[2]        ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.039     ; 1.475      ;
+; -0.527 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.163      ; 1.677      ;
+; -0.526 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.163      ; 1.676      ;
+; -0.526 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.163      ; 1.676      ;
+; -0.525 ; baud_rate_gen:uart_baud|rx_acc[4] ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.163      ; 1.675      ;
+; -0.523 ; receiver:uart_rx|sample[3]        ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 1.000        ; -0.039     ; 1.471      ;
+; -0.522 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.163      ; 1.672      ;
+; -0.521 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.447      ;
+; -0.521 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.447      ;
+; -0.521 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.447      ;
+; -0.521 ; receiver:uart_rx|sample[0]        ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 1.000        ; -0.061     ; 1.447      ;
+; -0.521 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.163      ; 1.671      ;
+; -0.521 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.163      ; 1.671      ;
+; -0.520 ; baud_rate_gen:uart_baud|rx_acc[0] ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.163      ; 1.670      ;
+; -0.520 ; baud_rate_gen:uart_baud|rx_acc[2] ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 1.000        ; 0.163      ; 1.670      ;
++--------+-----------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk_50m'                                                                                                                        ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                             ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.177 ; receiver:uart_rx|scratch[7]           ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; receiver:uart_rx|scratch[6]           ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; receiver:uart_rx|scratch[5]           ; receiver:uart_rx|scratch[5]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; receiver:uart_rx|scratch[4]           ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; receiver:uart_rx|scratch[3]           ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; receiver:uart_rx|scratch[2]           ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; receiver:uart_rx|scratch[1]           ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; receiver:uart_rx|scratch[0]           ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; transmitter:uart_tx|bitpos[0]         ; transmitter:uart_tx|bitpos[0]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; transmitter:uart_tx|bitpos[1]         ; transmitter:uart_tx|bitpos[1]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; transmitter:uart_tx|bitpos[2]         ; transmitter:uart_tx|bitpos[2]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|state.STATE_STOP  ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; transmitter:uart_tx|state.STATE_START ; transmitter:uart_tx|state.STATE_START ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.177 ; transmitter:uart_tx|state.STATE_IDLE  ; transmitter:uart_tx|state.STATE_IDLE  ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.307      ;
+; 0.178 ; receiver:uart_rx|rdy                  ; receiver:uart_rx|rdy                  ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.307      ;
+; 0.178 ; receiver:uart_rx|sample[3]            ; receiver:uart_rx|sample[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.307      ;
+; 0.178 ; receiver:uart_rx|sample[1]            ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.307      ;
+; 0.178 ; receiver:uart_rx|sample[0]            ; receiver:uart_rx|sample[0]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.307      ;
+; 0.178 ; receiver:uart_rx|sample[2]            ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.307      ;
+; 0.179 ; receiver:uart_rx|bitpos[2]            ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.307      ;
+; 0.179 ; receiver:uart_rx|bitpos[1]            ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.307      ;
+; 0.186 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.314      ;
+; 0.208 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.336      ;
+; 0.211 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.339      ;
+; 0.217 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|state.RX_STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.346      ;
+; 0.219 ; receiver:uart_rx|scratch[0]           ; receiver:uart_rx|data[0]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.070      ; 0.373      ;
+; 0.297 ; baud_rate_gen:uart_baud|rx_acc[3]     ; baud_rate_gen:uart_baud|rx_acc[3]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.418      ;
+; 0.298 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|state.RX_STATE_STOP  ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.427      ;
+; 0.303 ; baud_rate_gen:uart_baud|tx_acc[5]     ; baud_rate_gen:uart_baud|tx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.425      ;
+; 0.303 ; baud_rate_gen:uart_baud|tx_acc[1]     ; baud_rate_gen:uart_baud|tx_acc[1]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.425      ;
+; 0.304 ; baud_rate_gen:uart_baud|tx_acc[11]    ; baud_rate_gen:uart_baud|tx_acc[11]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.426      ;
+; 0.304 ; baud_rate_gen:uart_baud|tx_acc[9]     ; baud_rate_gen:uart_baud|tx_acc[9]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.426      ;
+; 0.304 ; baud_rate_gen:uart_baud|tx_acc[7]     ; baud_rate_gen:uart_baud|tx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.426      ;
+; 0.304 ; baud_rate_gen:uart_baud|tx_acc[2]     ; baud_rate_gen:uart_baud|tx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.426      ;
+; 0.305 ; baud_rate_gen:uart_baud|tx_acc[8]     ; baud_rate_gen:uart_baud|tx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.427      ;
+; 0.306 ; baud_rate_gen:uart_baud|rx_acc[4]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.427      ;
+; 0.311 ; receiver:uart_rx|bitpos[1]            ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.439      ;
+; 0.317 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[6]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.438      ;
+; 0.317 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.438      ;
+; 0.318 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.439      ;
+; 0.319 ; baud_rate_gen:uart_baud|rx_acc[0]     ; baud_rate_gen:uart_baud|rx_acc[0]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.440      ;
+; 0.322 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[1]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.443      ;
+; 0.324 ; baud_rate_gen:uart_baud|rx_acc[7]     ; baud_rate_gen:uart_baud|rx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.445      ;
+; 0.328 ; transmitter:uart_tx|bitpos[0]         ; transmitter:uart_tx|bitpos[1]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.458      ;
+; 0.341 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.030      ; 0.455      ;
+; 0.341 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[0]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.030      ; 0.455      ;
+; 0.344 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.030      ; 0.458      ;
+; 0.344 ; receiver:uart_rx|state.RX_STATE_DATA  ; receiver:uart_rx|bitpos[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.030      ; 0.458      ;
+; 0.363 ; receiver:uart_rx|state.RX_STATE_STOP  ; receiver:uart_rx|state.RX_STATE_START ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.492      ;
+; 0.372 ; receiver:uart_rx|scratch[4]           ; receiver:uart_rx|data[4]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.024      ; 0.480      ;
+; 0.372 ; baud_rate_gen:uart_baud|rx_acc[5]     ; baud_rate_gen:uart_baud|rx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.493      ;
+; 0.373 ; receiver:uart_rx|scratch[3]           ; receiver:uart_rx|data[3]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.024      ; 0.481      ;
+; 0.377 ; receiver:uart_rx|sample[0]            ; receiver:uart_rx|sample[1]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.506      ;
+; 0.390 ; receiver:uart_rx|scratch[5]           ; receiver:uart_rx|data[5]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.024      ; 0.498      ;
+; 0.391 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|state.STATE_IDLE  ; clk_50m      ; clk_50m     ; 0.000        ; 0.052      ; 0.527      ;
+; 0.416 ; transmitter:uart_tx|state.STATE_DATA  ; transmitter:uart_tx|bitpos[1]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.053      ; 0.553      ;
+; 0.417 ; transmitter:uart_tx|state.STATE_DATA  ; transmitter:uart_tx|bitpos[0]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.053      ; 0.554      ;
+; 0.420 ; transmitter:uart_tx|state.STATE_DATA  ; transmitter:uart_tx|bitpos[2]         ; clk_50m      ; clk_50m     ; 0.000        ; 0.053      ; 0.557      ;
+; 0.420 ; receiver:uart_rx|bitpos[0]            ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.548      ;
+; 0.431 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|tx                ; clk_50m      ; clk_50m     ; 0.000        ; 0.052      ; 0.567      ;
+; 0.432 ; transmitter:uart_tx|state.STATE_IDLE  ; transmitter:uart_tx|tx                ; clk_50m      ; clk_50m     ; 0.000        ; 0.046      ; 0.562      ;
+; 0.446 ; baud_rate_gen:uart_baud|rx_acc[3]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.567      ;
+; 0.452 ; receiver:uart_rx|scratch[7]           ; receiver:uart_rx|data[7]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.024      ; 0.560      ;
+; 0.452 ; baud_rate_gen:uart_baud|tx_acc[1]     ; baud_rate_gen:uart_baud|tx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.574      ;
+; 0.453 ; baud_rate_gen:uart_baud|tx_acc[7]     ; baud_rate_gen:uart_baud|tx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.575      ;
+; 0.455 ; receiver:uart_rx|scratch[2]           ; receiver:uart_rx|data[2]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.024      ; 0.563      ;
+; 0.460 ; receiver:uart_rx|sample[1]            ; receiver:uart_rx|sample[2]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.589      ;
+; 0.462 ; baud_rate_gen:uart_baud|tx_acc[0]     ; baud_rate_gen:uart_baud|tx_acc[1]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.584      ;
+; 0.463 ; baud_rate_gen:uart_baud|tx_acc[8]     ; baud_rate_gen:uart_baud|tx_acc[9]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.585      ;
+; 0.464 ; baud_rate_gen:uart_baud|tx_acc[11]    ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.237      ; 0.785      ;
+; 0.464 ; baud_rate_gen:uart_baud|rx_acc[4]     ; baud_rate_gen:uart_baud|rx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.585      ;
+; 0.465 ; baud_rate_gen:uart_baud|tx_acc[0]     ; baud_rate_gen:uart_baud|tx_acc[2]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.038      ; 0.587      ;
+; 0.466 ; baud_rate_gen:uart_baud|tx_acc[10]    ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.237      ; 0.787      ;
+; 0.467 ; receiver:uart_rx|scratch[1]           ; receiver:uart_rx|data[1]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.024      ; 0.575      ;
+; 0.467 ; baud_rate_gen:uart_baud|rx_acc[6]     ; baud_rate_gen:uart_baud|rx_acc[7]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.588      ;
+; 0.470 ; baud_rate_gen:uart_baud|rx_acc[2]     ; baud_rate_gen:uart_baud|rx_acc[3]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.591      ;
+; 0.473 ; baud_rate_gen:uart_baud|rx_acc[2]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.594      ;
+; 0.478 ; transmitter:uart_tx|state.STATE_STOP  ; transmitter:uart_tx|state.STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.606      ;
+; 0.480 ; baud_rate_gen:uart_baud|tx_acc[3]     ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.237      ; 0.801      ;
+; 0.481 ; receiver:uart_rx|scratch[6]           ; receiver:uart_rx|data[6]              ; clk_50m      ; clk_50m     ; 0.000        ; 0.024      ; 0.589      ;
+; 0.481 ; receiver:uart_rx|bitpos[1]            ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.609      ;
+; 0.486 ; transmitter:uart_tx|data[2]           ; transmitter:uart_tx|tx                ; clk_50m      ; clk_50m     ; 0.000        ; 0.244      ; 0.814      ;
+; 0.491 ; baud_rate_gen:uart_baud|rx_acc[8]     ; baud_rate_gen:uart_baud|rx_acc[8]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.612      ;
+; 0.492 ; transmitter:uart_tx|state.STATE_START ; transmitter:uart_tx|state.STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.620      ;
+; 0.492 ; baud_rate_gen:uart_baud|tx_acc[8]     ; transmitter:uart_tx|state.STATE_DATA  ; clk_50m      ; clk_50m     ; 0.000        ; 0.237      ; 0.813      ;
+; 0.495 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[0]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.042      ; 0.621      ;
+; 0.497 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[1]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.054      ; 0.635      ;
+; 0.498 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[5]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.054      ; 0.636      ;
+; 0.505 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[2]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.054      ; 0.643      ;
+; 0.506 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[3]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.054      ; 0.644      ;
+; 0.506 ; receiver:uart_rx|bitpos[3]            ; receiver:uart_rx|bitpos[3]            ; clk_50m      ; clk_50m     ; 0.000        ; 0.044      ; 0.634      ;
+; 0.507 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[4]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.054      ; 0.645      ;
+; 0.507 ; baud_rate_gen:uart_baud|tx_acc[12]    ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.045      ; 0.636      ;
+; 0.508 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[7]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.054      ; 0.646      ;
+; 0.509 ; receiver:uart_rx|state.RX_STATE_START ; receiver:uart_rx|scratch[6]           ; clk_50m      ; clk_50m     ; 0.000        ; 0.054      ; 0.647      ;
+; 0.509 ; baud_rate_gen:uart_baud|rx_acc[3]     ; baud_rate_gen:uart_baud|rx_acc[5]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.630      ;
+; 0.509 ; baud_rate_gen:uart_baud|tx_acc[4]     ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.237      ; 0.830      ;
+; 0.510 ; baud_rate_gen:uart_baud|tx_acc[6]     ; baud_rate_gen:uart_baud|tx_acc[12]    ; clk_50m      ; clk_50m     ; 0.000        ; 0.237      ; 0.831      ;
+; 0.511 ; baud_rate_gen:uart_baud|rx_acc[1]     ; baud_rate_gen:uart_baud|rx_acc[3]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.632      ;
+; 0.514 ; baud_rate_gen:uart_baud|rx_acc[1]     ; baud_rate_gen:uart_baud|rx_acc[4]     ; clk_50m      ; clk_50m     ; 0.000        ; 0.037      ; 0.635      ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -2.523   ; 0.177 ; N/A      ; N/A     ; -3.000              ;
+;  clk_50m         ; -2.523   ; 0.177 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -116.816 ; 0.0   ; 0.0      ; 0.0     ; -87.81              ;
+;  clk_50m         ; -116.816 ; 0.000 ; N/A      ; N/A     ; -87.810             ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; tx            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; tx_busy       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; rdy           ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; dout[0]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; dout[1]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; dout[2]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; dout[3]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; dout[4]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; dout[5]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; dout[6]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; dout[7]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; clk_50m                 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; wr_en                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; rx                      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; rdy_clr                 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; din[6]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; din[5]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; din[4]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; din[7]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; din[2]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; din[1]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; din[0]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; din[3]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; tx            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; tx_busy       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; rdy           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; dout[0]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; dout[1]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; dout[2]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; dout[3]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.33 V              ; -0.00502 V          ; 0.178 V                              ; 0.07 V                               ; 2.92e-09 s                  ; 2.79e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.33 V             ; -0.00502 V         ; 0.178 V                             ; 0.07 V                              ; 2.92e-09 s                 ; 2.79e-09 s                 ; Yes                       ; Yes                       ;
+; dout[4]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; dout[5]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; dout[6]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; dout[7]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.79e-09 V                   ; 2.37 V              ; -0.0226 V           ; 0.146 V                              ; 0.053 V                              ; 4.8e-10 s                   ; 4.31e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.79e-09 V                  ; 2.37 V             ; -0.0226 V          ; 0.146 V                             ; 0.053 V                             ; 4.8e-10 s                  ; 4.31e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.29e-09 V                   ; 2.36 V              ; -0.00431 V          ; 0.132 V                              ; 0.013 V                              ; 6.77e-10 s                  ; 8.36e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.29e-09 V                  ; 2.36 V             ; -0.00431 V         ; 0.132 V                             ; 0.013 V                             ; 6.77e-10 s                 ; 8.36e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; tx            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; tx_busy       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; rdy           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; dout[0]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; dout[1]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; dout[2]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; dout[3]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.33 V              ; -0.00266 V          ; 0.11 V                               ; 0.064 V                              ; 3.55e-09 s                  ; 3.42e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.33 V             ; -0.00266 V         ; 0.11 V                              ; 0.064 V                             ; 3.55e-09 s                 ; 3.42e-09 s                 ; Yes                       ; Yes                       ;
+; dout[4]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; dout[5]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; dout[6]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; dout[7]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.7e-07 V                    ; 2.35 V              ; -0.00826 V          ; 0.089 V                              ; 0.034 V                              ; 6.08e-10 s                  ; 5.11e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.7e-07 V                   ; 2.35 V             ; -0.00826 V         ; 0.089 V                             ; 0.034 V                             ; 6.08e-10 s                 ; 5.11e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.08e-07 V                   ; 2.34 V              ; -0.00367 V          ; 0.099 V                              ; 0.024 V                              ; 7.72e-10 s                  ; 1.04e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.08e-07 V                  ; 2.34 V             ; -0.00367 V         ; 0.099 V                             ; 0.024 V                             ; 7.72e-10 s                 ; 1.04e-09 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; tx            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; tx_busy       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; rdy           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; dout[0]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; dout[1]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; dout[2]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; dout[3]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.64 V              ; -0.0111 V           ; 0.21 V                               ; 0.135 V                              ; 2.38e-09 s                  ; 2.28e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.64 V             ; -0.0111 V          ; 0.21 V                              ; 0.135 V                             ; 2.38e-09 s                 ; 2.28e-09 s                 ; No                        ; Yes                       ;
+; dout[4]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; dout[5]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; dout[6]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; dout[7]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.19e-08 V                   ; 2.71 V              ; -0.0718 V           ; 0.277 V                              ; 0.167 V                              ; 3.12e-10 s                  ; 3.02e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.19e-08 V                  ; 2.71 V             ; -0.0718 V          ; 0.277 V                             ; 0.167 V                             ; 3.12e-10 s                 ; 3.02e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.52e-08 V                   ; 2.7 V               ; -0.0198 V           ; 0.2 V                                ; 0.049 V                              ; 4.85e-10 s                  ; 6.73e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.52e-08 V                  ; 2.7 V              ; -0.0198 V          ; 0.2 V                               ; 0.049 V                             ; 4.85e-10 s                 ; 6.73e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk_50m    ; clk_50m  ; 1244     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk_50m    ; clk_50m  ; 1244     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 11    ; 11   ;
+; Unconstrained Input Port Paths  ; 46    ; 46   ;
+; Unconstrained Output Ports      ; 11    ; 11   ;
+; Unconstrained Output Port Paths ; 11    ; 11   ;
++---------------------------------+-------+------+
+
+
++----------------------------------------+
+; Clock Status Summary                   ;
++---------+---------+------+-------------+
+; Target  ; Clock   ; Type ; Status      ;
++---------+---------+------+-------------+
+; clk_50m ; clk_50m ; Base ; Constrained ;
++---------+---------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; din[0]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[1]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[2]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[3]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[4]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[5]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[6]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[7]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rdy_clr    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rx         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; wr_en      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; dout[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[7]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rdy         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; tx          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; tx_busy     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; din[0]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[1]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[2]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[3]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[4]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[5]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[6]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; din[7]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rdy_clr    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rx         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; wr_en      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; dout[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dout[7]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rdy         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; tx          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; tx_busy     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+    Info: Processing started: Tue Aug 29 21:44:44 2023
+Info: Command: quartus_sta SensorDigital -c SensorDigital
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'SensorDigital.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk_50m clk_50m
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.523
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.523            -116.816 clk_50m 
+Info (332146): Worst-case hold slack is 0.392
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.392               0.000 clk_50m 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -87.810 clk_50m 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.198
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.198             -99.847 clk_50m 
+Info (332146): Worst-case hold slack is 0.344
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.344               0.000 clk_50m 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -87.810 clk_50m 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.713
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.713             -23.821 clk_50m 
+Info (332146): Worst-case hold slack is 0.177
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.177               0.000 clk_50m 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -73.626 clk_50m 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4817 megabytes
+    Info: Processing ended: Tue Aug 29 21:44:46 2023
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
