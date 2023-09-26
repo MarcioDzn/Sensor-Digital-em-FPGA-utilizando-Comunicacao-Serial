@@ -4,95 +4,91 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "tx",
+					"name" : "pc_out",
 					"strict" : false
 				},
 				{
-					"name" : "tx_busy",
+					"name" : "state[0]",
 					"strict" : false
 				},
 				{
-					"name" : "rdy",
+					"name" : "state[1]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[0]",
+					"name" : "ebyte1[0]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[1]",
+					"name" : "ebyte1[1]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[2]",
+					"name" : "ebyte1[2]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[3]",
+					"name" : "ebyte1[3]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[4]",
+					"name" : "ebyte1[4]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[5]",
+					"name" : "ebyte1[5]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[6]",
+					"name" : "ebyte1[6]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[7]",
+					"name" : "ebyte1[7]",
 					"strict" : false
 				},
 				{
-					"name" : "clk_50m",
+					"name" : "ebyte2[0]",
 					"strict" : false
 				},
 				{
-					"name" : "wr_en",
+					"name" : "ebyte2[1]",
 					"strict" : false
 				},
 				{
-					"name" : "rx",
+					"name" : "ebyte2[2]",
 					"strict" : false
 				},
 				{
-					"name" : "rdy_clr",
+					"name" : "ebyte2[3]",
 					"strict" : false
 				},
 				{
-					"name" : "din[6]",
+					"name" : "ebyte2[4]",
 					"strict" : false
 				},
 				{
-					"name" : "din[5]",
+					"name" : "ebyte2[5]",
 					"strict" : false
 				},
 				{
-					"name" : "din[4]",
+					"name" : "ebyte2[6]",
 					"strict" : false
 				},
 				{
-					"name" : "din[7]",
+					"name" : "ebyte2[7]",
 					"strict" : false
 				},
 				{
-					"name" : "din[2]",
+					"name" : "dht",
 					"strict" : false
 				},
 				{
-					"name" : "din[1]",
+					"name" : "clk",
 					"strict" : false
 				},
 				{
-					"name" : "din[0]",
-					"strict" : false
-				},
-				{
-					"name" : "din[3]",
+					"name" : "pc_in",
 					"strict" : false
 				}
 			]

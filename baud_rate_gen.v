@@ -17,8 +17,8 @@
 
 
 /*
- * Hacky baud rate generator to divide a 50MHz clock into a 9600 baud
- * rx/tx pair where the rx clcken oversamples by 16x.
+ * Gerador de taxa de transmissão para dividir um clock de 50 MHz em um clock de 9600 baud
+ * par rx/tx onde o rx clcken superamostra em 16x
  */
 module baud_rate_gen(input wire clk_50m,
 		     output wire rxclk_en,

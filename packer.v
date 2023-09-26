@@ -1,3 +1,10 @@
+/*
+ * ----------------------------------------------------------------------
+ * Módulo responsável por "empacotar" os bytes de resposta e/ou de 
+ * dados a serem posteriormente enviados para o computador
+ * ----------------------------------------------------------------------
+ */
+ 
 module packer(input EN,
 		input ERROR,
 		input BREAK_CONTINUOUS,
@@ -12,12 +19,13 @@ module packer(input EN,
 	localparam T = 2'b01, H = 2'b10, S = 2'b11;
 	
 	always @(posedge EN) begin
-		/*
-		* Respostas se tornam código de erro caso:
-		* - Seja emitido um sinal de erro pelo módulo DHT11
-		* - Caso se queira temperatura e esta se mostre igual a 0 ou acima de 50 (limites do DHT11)
-		* - Caso se queira umidade e esta se mostre abaixo de 20 ou acima de 90 (limites do DHT11)
-		*/
+	
+	   /*
+		 * Respostas se tornam código de erro caso:
+		 * - Seja emitido um sinal de erro pelo módulo DHT11
+		 * - Caso se queira temperatura e esta se mostre igual a 0 ou acima de 50 (limites do DHT11)
+		 * - Caso se queira umidade e esta se mostre abaixo de 20 ou acima de 90 (limites do DHT11)
+		 */
 		if (ERROR || (DATA_TYPE == T && (DATA_INT == 8'd0 || DATA_INT > 8'd50)) || (DATA_TYPE == H && (DATA_INT < 8'd20 || DATA_INT > 8'd90))) begin
 			BYTE1 <= SENSOR_ISSUE;
 			BYTE2 <= SENSOR_ISSUE;
@@ -25,8 +33,8 @@ module packer(input EN,
 		end
 		
 		/*
-		* Caso não haja nenhum erro
-		*/
+		 * Caso não haja nenhum erro
+		 */
 		else begin
 			case (DATA_TYPE)
 				T: begin

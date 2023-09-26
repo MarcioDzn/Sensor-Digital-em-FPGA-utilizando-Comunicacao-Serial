@@ -2,40 +2,268 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'clk_50m'
-Slack : -2.523
-TNS   : -116.816
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -5.883
+TNS   : -157.467
 
-Type  : Slow 1200mV 85C Model Hold 'clk_50m'
-Slack : 0.392
+Type  : Slow 1200mV 85C Model Setup 'main_state_machine:MAQUINA_ESTADOS|pack'
+Slack : -5.745
+TNS   : -119.729
+
+Type  : Slow 1200mV 85C Model Setup 'main_state_machine:MAQUINA_ESTADOS|idle'
+Slack : -5.675
+TNS   : -5.675
+
+Type  : Slow 1200mV 85C Model Setup 'DHT11:SENSOR|clk_1mhz'
+Slack : -3.399
+TNS   : -305.441
+
+Type  : Slow 1200mV 85C Model Setup 'uart:UART|receiver:uart_rx|rdy'
+Slack : -0.312
+TNS   : -0.993
+
+Type  : Slow 1200mV 85C Model Setup 'request_separator:SEPARADOR|DONE'
+Slack : 0.558
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50m'
-Slack : -3.000
-TNS   : -87.810
-
-Type  : Slow 1200mV 0C Model Setup 'clk_50m'
-Slack : -2.198
-TNS   : -99.847
-
-Type  : Slow 1200mV 0C Model Hold 'clk_50m'
-Slack : 0.344
+Type  : Slow 1200mV 85C Model Hold 'request_separator:SEPARADOR|DONE'
+Slack : 0.079
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50m'
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.393
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'DHT11:SENSOR|clk_1mhz'
+Slack : 0.394
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'uart:UART|receiver:uart_rx|rdy'
+Slack : 0.416
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'main_state_machine:MAQUINA_ESTADOS|pack'
+Slack : 0.899
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'main_state_machine:MAQUINA_ESTADOS|idle'
+Slack : 2.606
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'DHT11:SENSOR|clk_1mhz'
+Slack : -1.401
+TNS   : -93.700
+
+Type  : Slow 1200mV 85C Model Recovery 'request_separator:SEPARADOR|DONE'
+Slack : -0.145
+TNS   : -0.145
+
+Type  : Slow 1200mV 85C Model Removal 'request_separator:SEPARADOR|DONE'
+Slack : 0.257
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'DHT11:SENSOR|clk_1mhz'
+Slack : 1.442
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -87.810
+TNS   : -108.370
 
-Type  : Fast 1200mV 0C Model Setup 'clk_50m'
-Slack : -0.713
-TNS   : -23.821
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DHT11:SENSOR|clk_1mhz'
+Slack : -1.285
+TNS   : -173.475
 
-Type  : Fast 1200mV 0C Model Hold 'clk_50m'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'main_state_machine:MAQUINA_ESTADOS|pack'
+Slack : -1.285
+TNS   : -28.270
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'uart:UART|receiver:uart_rx|rdy'
+Slack : -1.285
+TNS   : -6.425
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'request_separator:SEPARADOR|DONE'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'main_state_machine:MAQUINA_ESTADOS|idle'
+Slack : 0.428
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -5.339
+TNS   : -136.832
+
+Type  : Slow 1200mV 0C Model Setup 'main_state_machine:MAQUINA_ESTADOS|idle'
+Slack : -5.119
+TNS   : -5.119
+
+Type  : Slow 1200mV 0C Model Setup 'main_state_machine:MAQUINA_ESTADOS|pack'
+Slack : -5.086
+TNS   : -106.197
+
+Type  : Slow 1200mV 0C Model Setup 'DHT11:SENSOR|clk_1mhz'
+Slack : -3.028
+TNS   : -270.236
+
+Type  : Slow 1200mV 0C Model Setup 'uart:UART|receiver:uart_rx|rdy'
+Slack : -0.197
+TNS   : -0.591
+
+Type  : Slow 1200mV 0C Model Setup 'request_separator:SEPARADOR|DONE'
+Slack : 0.572
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'request_separator:SEPARADOR|DONE'
+Slack : 0.061
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'DHT11:SENSOR|clk_1mhz'
+Slack : 0.345
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.345
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'uart:UART|receiver:uart_rx|rdy'
+Slack : 0.372
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'main_state_machine:MAQUINA_ESTADOS|pack'
+Slack : 0.796
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'main_state_machine:MAQUINA_ESTADOS|idle'
+Slack : 2.333
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'DHT11:SENSOR|clk_1mhz'
+Slack : -1.224
+TNS   : -80.182
+
+Type  : Slow 1200mV 0C Model Recovery 'request_separator:SEPARADOR|DONE'
+Slack : -0.022
+TNS   : -0.022
+
+Type  : Slow 1200mV 0C Model Removal 'request_separator:SEPARADOR|DONE'
+Slack : 0.226
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'DHT11:SENSOR|clk_1mhz'
+Slack : 1.335
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -108.370
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DHT11:SENSOR|clk_1mhz'
+Slack : -1.285
+TNS   : -173.475
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'main_state_machine:MAQUINA_ESTADOS|pack'
+Slack : -1.285
+TNS   : -28.270
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'uart:UART|receiver:uart_rx|rdy'
+Slack : -1.285
+TNS   : -6.425
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'request_separator:SEPARADOR|DONE'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'main_state_machine:MAQUINA_ESTADOS|idle'
+Slack : 0.438
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'main_state_machine:MAQUINA_ESTADOS|idle'
+Slack : -2.594
+TNS   : -2.594
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -2.465
+TNS   : -35.771
+
+Type  : Fast 1200mV 0C Model Setup 'main_state_machine:MAQUINA_ESTADOS|pack'
+Slack : -2.362
+TNS   : -49.021
+
+Type  : Fast 1200mV 0C Model Setup 'DHT11:SENSOR|clk_1mhz'
+Slack : -1.119
+TNS   : -83.516
+
+Type  : Fast 1200mV 0C Model Setup 'uart:UART|receiver:uart_rx|rdy'
+Slack : 0.349
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'request_separator:SEPARADOR|DONE'
+Slack : 0.518
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.048
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'DHT11:SENSOR|clk_1mhz'
 Slack : 0.177
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50m'
+Type  : Fast 1200mV 0C Model Hold 'uart:UART|receiver:uart_rx|rdy'
+Slack : 0.185
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'request_separator:SEPARADOR|DONE'
+Slack : 0.299
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'main_state_machine:MAQUINA_ESTADOS|pack'
+Slack : 0.368
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'main_state_machine:MAQUINA_ESTADOS|idle'
+Slack : 1.212
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'DHT11:SENSOR|clk_1mhz'
+Slack : -0.276
+TNS   : -12.416
+
+Type  : Fast 1200mV 0C Model Recovery 'request_separator:SEPARADOR|DONE'
+Slack : 0.074
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'request_separator:SEPARADOR|DONE'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'DHT11:SENSOR|clk_1mhz'
+Slack : 0.686
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -73.626
+TNS   : -89.566
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DHT11:SENSOR|clk_1mhz'
+Slack : -1.000
+TNS   : -135.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'main_state_machine:MAQUINA_ESTADOS|pack'
+Slack : -1.000
+TNS   : -22.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'uart:UART|receiver:uart_rx|rdy'
+Slack : -1.000
+TNS   : -5.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'request_separator:SEPARADOR|DONE'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'main_state_machine:MAQUINA_ESTADOS|idle'
+Slack : 0.464
+TNS   : 0.000
 
 ------------------------------------------------------------

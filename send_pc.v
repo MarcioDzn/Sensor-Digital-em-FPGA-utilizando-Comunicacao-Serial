@@ -1,7 +1,14 @@
+/* 
+ * ----------------------------------------------------------------------
+ * Modulo responsavel por enviar os bytes de resposta e de dados
+ * para o dispositivo que os solicitou
+ * ----------------------------------------------------------------------
+ */
+
 module send_pc( 
 	input clk,
-  	input EN, // Enable advindo da máquina de estados principal
-	input [7:0] BYTE1,
+  	input EN, 
+	input [7:0] BYTE1, // Byte de resposta
   	input [7:0] BYTE2, // Dados solicitados (porção inteira)
   	input [7:0] BYTE3, // Dados solicitados (porção fracionária)
   	input BUSY_TX, // Sinal de ocupado advindo do transmitter
@@ -20,7 +27,13 @@ module send_pc(
 	end
 	
 	always @(posedge clk) begin: FSM
+		/* Executa apenas quando em estado SEND em main_state_machine */
 		if (EN) begin
+		
+			/* 
+			 * Garante que os dados só irão para o transmitter se
+			 * o mesmo não estiver ocupado enviando outro byte
+			 */
 			if (BUSY_TX) begin
 				RESPONSE_DATA <= RESPONSE_DATA;
 				EN_TX <= 0;
@@ -28,6 +41,7 @@ module send_pc(
 				count <= count;
 			end
 			else begin
+				/* Envio dos 4 bytes de um em um */
 				case (count) 
 					3'b000: begin 
 						RESPONSE_DATA <= BYTE1;
@@ -52,7 +66,7 @@ module send_pc(
 					end
 					3'b111: begin
 						RESPONSE_DATA <= RESPONSE_DATA;
-						EN_TX <= 0;
+						EN_TX <= 0; 
 						DONE <= 1;
 					end
 				endcase

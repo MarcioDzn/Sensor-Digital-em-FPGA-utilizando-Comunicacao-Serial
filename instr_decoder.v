@@ -1,10 +1,12 @@
 /* 
- * Módulo decodificador de instrução responsável por enviar  
- * dados referentes ao sensoriamento continuo e parada de 
- * sensoriamento continuo com base na instrução recebida
+ * ----------------------------------------------------------------------
+ * Módulo responsável por decodificar a instrução recebida
+ * Indica se a instrução solicita sensoriamento continuo ou 
+ * parada de sensoriamento continuo
  *
- * Além disso, envia um bit referente ao tipo de dado  
- * solicitado na instrução (umidade, temperatura e status)
+ * Além disso, tem como saída o tipo de dado solicitado 
+ * (temperatura, umidade e status)
+ * ----------------------------------------------------------------------
  */
 module instr_decoder(input [2:0] INSTR,
     output CONTINUOUS_EN, // Sinal que indica se houve instrução pra sensoriamento contínuo
@@ -30,13 +32,11 @@ module instr_decoder(input [2:0] INSTR,
   assign BREAK_CONTINUOUS = (INSTR == X_TEMP_CONT || INSTR == X_HUMID_CONT) ? 1 : 0;
 
 
-/* generate
- *   if (INSTR == STATUS) DATA_TYPE = S;
- *   else if (INSTR == TEMP || INSTR == TEMP_CONT) DATA_TYPE = T;
- *   else DATA_TYPE = H;  *endgenerate 
+ /* generate
+  *   if (INSTR == STATUS) DATA_TYPE = S;
+  *   else if (INSTR == TEMP || INSTR == TEMP_CONT) DATA_TYPE = T;
+  *   else DATA_TYPE = H;  *endgenerate 
   */
-
-  //assign DATA_TYPE = (INSTR == STATUS) ? S : ((INSTR == TEMP || INSTR == TEMP_CONT || INSTR == X_TEMP_CONT) ? T : H);
   assign DATA_TYPE = (INSTR == STATUS) ? S : ((INSTR == TEMP || INSTR == TEMP_CONT || INSTR == X_TEMP_CONT) ? T : (INSTR == HUMID || INSTR == HUMID_CONT || INSTR == X_HUMID_CONT) ? H : N);
   
 endmodule

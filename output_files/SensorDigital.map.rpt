@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SensorDigital
-Tue Aug 29 21:44:33 2023
+Mon Sep 25 22:49:17 2023
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -13,18 +13,23 @@ Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |uart|receiver:uart_rx|state
-  9. State Machine - |uart|transmitter:uart_tx|state
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: baud_rate_gen:uart_baud
- 15. Parameter Settings for User Entity Instance: transmitter:uart_tx
- 16. Parameter Settings for User Entity Instance: receiver:uart_rx
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+  8. State Machine - |main|DHT11:SENSOR|state
+  9. State Machine - |main|uart:UART|receiver:uart_rx|state
+ 10. State Machine - |main|uart:UART|transmitter:uart_tx|state
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: uart:UART|baud_rate_gen:uart_baud
+ 16. Parameter Settings for User Entity Instance: uart:UART|transmitter:uart_tx
+ 17. Parameter Settings for User Entity Instance: uart:UART|receiver:uart_rx
+ 18. Port Connectivity Checks: "request_separator:SEPARADOR"
+ 19. Port Connectivity Checks: "DHT11:SENSOR"
+ 20. Port Connectivity Checks: "uart:UART"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+ 24. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -51,16 +56,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Aug 29 21:44:33 2023          ;
+; Analysis & Synthesis Status        ; Successful - Mon Sep 25 22:49:17 2023          ;
 ; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                      ; SensorDigital                                  ;
-; Top-level Entity Name              ; uart                                           ;
+; Top-level Entity Name              ; main                                           ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 133                                            ;
-;     Total combinational functions  ; 116                                            ;
-;     Dedicated logic registers      ; 66                                             ;
-; Total registers                    ; 66                                             ;
-; Total pins                         ; 23                                             ;
+; Total logic elements               ; 409                                            ;
+;     Total combinational functions  ; 360                                            ;
+;     Dedicated logic registers      ; 245                                            ;
+; Total registers                    ; 245                                            ;
+; Total pins                         ; 22                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -74,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE40F23C7       ;                    ;
-; Top-level entity name                                            ; uart               ; SensorDigital      ;
+; Top-level entity name                                            ; main               ; SensorDigital      ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -167,70 +172,107 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                          ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                            ; Library ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
-; baud_rate_gen.v                  ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/baud_rate_gen.v ;         ;
-; receiver.v                       ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/receiver.v      ;         ;
-; transmitter.v                    ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/transmitter.v   ;         ;
-; uart.v                           ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v          ;         ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                               ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                                 ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
+; baud_rate_gen.v                  ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/baud_rate_gen.v      ;         ;
+; receiver.v                       ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/receiver.v           ;         ;
+; transmitter.v                    ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/transmitter.v        ;         ;
+; uart.v                           ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v               ;         ;
+; data_selector.v                  ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/data_selector.v      ;         ;
+; DHT11.v                          ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v              ;         ;
+; instr_decoder.v                  ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v      ;         ;
+; main.v                           ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v               ;         ;
+; main_state_machine.v             ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main_state_machine.v ;         ;
+; packer.v                         ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/packer.v             ;         ;
+; request_separator.v              ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/request_separator.v  ;         ;
+; send_pc.v                        ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/send_pc.v            ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                 ;
-+---------------------------------------------+---------------+
-; Resource                                    ; Usage         ;
-+---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 133           ;
-;                                             ;               ;
-; Total combinational functions               ; 116           ;
-; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 59            ;
-;     -- 3 input functions                    ; 21            ;
-;     -- <=2 input functions                  ; 36            ;
-;                                             ;               ;
-; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 96            ;
-;     -- arithmetic mode                      ; 20            ;
-;                                             ;               ;
-; Total registers                             ; 66            ;
-;     -- Dedicated logic registers            ; 66            ;
-;     -- I/O registers                        ; 0             ;
-;                                             ;               ;
-; I/O pins                                    ; 23            ;
-;                                             ;               ;
-; Embedded Multiplier 9-bit elements          ; 0             ;
-;                                             ;               ;
-; Maximum fan-out node                        ; clk_50m~input ;
-; Maximum fan-out                             ; 66            ;
-; Total fan-out                               ; 556           ;
-; Average fan-out                             ; 2.44          ;
-+---------------------------------------------+---------------+
++---------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                         ;
++---------------------------------------------+-----------------------+
+; Resource                                    ; Usage                 ;
++---------------------------------------------+-----------------------+
+; Estimated Total logic elements              ; 409                   ;
+;                                             ;                       ;
+; Total combinational functions               ; 360                   ;
+; Logic element usage by number of LUT inputs ;                       ;
+;     -- 4 input functions                    ; 146                   ;
+;     -- 3 input functions                    ; 77                    ;
+;     -- <=2 input functions                  ; 137                   ;
+;                                             ;                       ;
+; Logic elements by mode                      ;                       ;
+;     -- normal mode                          ; 293                   ;
+;     -- arithmetic mode                      ; 67                    ;
+;                                             ;                       ;
+; Total registers                             ; 245                   ;
+;     -- Dedicated logic registers            ; 245                   ;
+;     -- I/O registers                        ; 0                     ;
+;                                             ;                       ;
+; I/O pins                                    ; 22                    ;
+;                                             ;                       ;
+; Embedded Multiplier 9-bit elements          ; 0                     ;
+;                                             ;                       ;
+; Maximum fan-out node                        ; DHT11:SENSOR|clk_1mhz ;
+; Maximum fan-out                             ; 135                   ;
+; Total fan-out                               ; 1859                  ;
+; Average fan-out                             ; 2.86                  ;
++---------------------------------------------+-----------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                    ;
-+------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+---------------+--------------+
-; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name           ; Entity Name   ; Library Name ;
-+------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+---------------+--------------+
-; |uart                        ; 116 (0)             ; 66 (0)                    ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |uart                         ; uart          ; work         ;
-;    |baud_rate_gen:uart_baud| ; 42 (42)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|baud_rate_gen:uart_baud ; baud_rate_gen ; work         ;
-;    |receiver:uart_rx|        ; 53 (53)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|receiver:uart_rx        ; receiver      ; work         ;
-;    |transmitter:uart_tx|     ; 21 (21)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|transmitter:uart_tx     ; transmitter   ; work         ;
-+------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+---------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                               ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                      ; Entity Name        ; Library Name ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------------+--------------+
+; |main                                   ; 360 (0)             ; 245 (0)                   ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |main                                    ; main               ; work         ;
+;    |DHT11:SENSOR|                       ; 166 (166)           ; 142 (142)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|DHT11:SENSOR                       ; DHT11              ; work         ;
+;    |data_selector:SELETOR|              ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|data_selector:SELETOR              ; data_selector      ; work         ;
+;    |instr_decoder:DECODIFICADOR|        ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|instr_decoder:DECODIFICADOR        ; instr_decoder      ; work         ;
+;    |main_state_machine:MAQUINA_ESTADOS| ; 8 (8)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|main_state_machine:MAQUINA_ESTADOS ; main_state_machine ; work         ;
+;    |packer:ORGANIZADOR|                 ; 41 (41)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|packer:ORGANIZADOR                 ; packer             ; work         ;
+;    |request_separator:SEPARADOR|        ; 5 (5)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|request_separator:SEPARADOR        ; request_separator  ; work         ;
+;    |send_pc:ENVIA_PC|                   ; 23 (23)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|send_pc:ENVIA_PC                   ; send_pc            ; work         ;
+;    |uart:UART|                          ; 107 (0)             ; 56 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|uart:UART                          ; uart               ; work         ;
+;       |baud_rate_gen:uart_baud|         ; 42 (42)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|uart:UART|baud_rate_gen:uart_baud  ; baud_rate_gen      ; work         ;
+;       |receiver:uart_rx|                ; 36 (36)             ; 18 (18)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|uart:UART|receiver:uart_rx         ; receiver           ; work         ;
+;       |transmitter:uart_tx|             ; 29 (29)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|uart:UART|transmitter:uart_tx      ; transmitter        ; work         ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|DHT11:SENSOR|state                                                                                               ;
++------------+------------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+
+; Name       ; state.STOP ; state.s10 ; state.s9 ; state.s8 ; state.s7 ; state.s6 ; state.s5 ; state.s4 ; state.s3 ; state.s2 ; state.s1 ;
++------------+------------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+
+; state.s1   ; 0          ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ;
+; state.s2   ; 0          ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 1        ;
+; state.s3   ; 0          ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 1        ;
+; state.s4   ; 0          ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 1        ;
+; state.s5   ; 0          ; 0         ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 1        ;
+; state.s6   ; 0          ; 0         ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 1        ;
+; state.s7   ; 0          ; 0         ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ;
+; state.s8   ; 0          ; 0         ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ;
+; state.s9   ; 0          ; 0         ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ;
+; state.s10  ; 0          ; 1         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ;
+; state.STOP ; 1          ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ;
++------------+------------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+
+
+
+Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------+
-; State Machine - |uart|receiver:uart_rx|state                                            ;
+; State Machine - |main|uart:UART|receiver:uart_rx|state                                  ;
 +----------------------+----------------------+---------------------+---------------------+
 ; Name                 ; state.RX_STATE_START ; state.RX_STATE_STOP ; state.RX_STATE_DATA ;
 +----------------------+----------------------+---------------------+---------------------+
@@ -242,7 +284,7 @@ Encoding Type:  One-Hot
 
 Encoding Type:  One-Hot
 +------------------------------------------------------------------------------------------------+
-; State Machine - |uart|transmitter:uart_tx|state                                                ;
+; State Machine - |main|uart:UART|transmitter:uart_tx|state                                      ;
 +-------------------+------------------+------------------+-------------------+------------------+
 ; Name              ; state.STATE_STOP ; state.STATE_DATA ; state.STATE_START ; state.STATE_IDLE ;
 +-------------------+------------------+------------------+-------------------+------------------+
@@ -253,15 +295,20 @@ Encoding Type:  One-Hot
 +-------------------+------------------+------------------+-------------------+------------------+
 
 
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; transmitter:uart_tx|state~5           ; Lost fanout        ;
-; transmitter:uart_tx|state~6           ; Lost fanout        ;
-; Total Number of Removed Registers = 2 ;                    ;
-+---------------------------------------+--------------------+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++---------------------------------------+-----------------------------------------+
+; Register name                         ; Reason for Removal                      ;
++---------------------------------------+-----------------------------------------+
+; packer:ORGANIZADOR|BYTE1[6,7]         ; Merged with packer:ORGANIZADOR|BYTE1[5] ;
+; DHT11:SENSOR|state~15                 ; Lost fanout                             ;
+; DHT11:SENSOR|state~16                 ; Lost fanout                             ;
+; DHT11:SENSOR|state~17                 ; Lost fanout                             ;
+; DHT11:SENSOR|state~18                 ; Lost fanout                             ;
+; uart:UART|transmitter:uart_tx|state~5 ; Lost fanout                             ;
+; uart:UART|transmitter:uart_tx|state~6 ; Lost fanout                             ;
+; Total Number of Removed Registers = 8 ;                                         ;
++---------------------------------------+-----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -269,76 +316,129 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 66    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 245   ;
+; Number of registers using Synchronous Clear  ; 22    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 80    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 23    ;
+; Number of registers using Clock Enable       ; 153   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; transmitter:uart_tx|tx                 ; 2       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; uart:UART|transmitter:uart_tx|tx        ; 2       ;
+; send_pc:ENVIA_PC|RESPONSE_DATA[6]       ; 1       ;
+; send_pc:ENVIA_PC|RESPONSE_DATA[5]       ; 1       ;
+; send_pc:ENVIA_PC|RESPONSE_DATA[4]       ; 1       ;
+; send_pc:ENVIA_PC|RESPONSE_DATA[7]       ; 1       ;
+; send_pc:ENVIA_PC|RESPONSE_DATA[2]       ; 1       ;
+; send_pc:ENVIA_PC|RESPONSE_DATA[1]       ; 1       ;
+; send_pc:ENVIA_PC|RESPONSE_DATA[0]       ; 1       ;
+; send_pc:ENVIA_PC|RESPONSE_DATA[3]       ; 1       ;
+; main_state_machine:MAQUINA_ESTADOS|idle ; 3       ;
+; DHT11:SENSOR|dout                       ; 2       ;
+; DHT11:SENSOR|read_flag                  ; 2       ;
+; Total number of inverted registers = 12 ;         ;
++-----------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |uart|receiver:uart_rx|bitpos[0]    ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |uart|transmitter:uart_tx|bitpos[0] ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |uart|receiver:uart_rx|sample[3]    ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |uart|receiver:uart_rx|state        ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |uart|transmitter:uart_tx|Selector1 ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |uart|transmitter:uart_tx|Selector0 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |main|send_pc:ENVIA_PC|count[0]               ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |main|packer:ORGANIZADOR|BYTE1[1]             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |main|DHT11:SENSOR|data[27]                   ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |main|packer:ORGANIZADOR|BYTE2[4]             ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; Yes        ; |main|packer:ORGANIZADOR|BYTE2[7]             ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |main|packer:ORGANIZADOR|BYTE3[3]             ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |main|packer:ORGANIZADOR|BYTE3[7]             ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |main|uart:UART|receiver:uart_rx|bitpos[2]    ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |main|send_pc:ENVIA_PC|DONE                   ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |main|uart:UART|transmitter:uart_tx|bitpos[1] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |main|uart:UART|receiver:uart_rx|sample[0]    ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |main|DHT11:SENSOR|data_cnt[4]                ;
+; 11:1               ; 16 bits   ; 112 LEs       ; 16 LEs               ; 96 LEs                 ; Yes        ; |main|DHT11:SENSOR|cnt[13]                    ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |main|send_pc:ENVIA_PC|RESPONSE_DATA[7]       ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 10 LEs               ; 15 LEs                 ; Yes        ; |main|send_pc:ENVIA_PC|RESPONSE_DATA[1]       ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |main|uart:UART|receiver:uart_rx|state        ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |main|uart:UART|transmitter:uart_tx|Selector1 ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |main|uart:UART|transmitter:uart_tx|Selector0 ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 12 LEs               ; 9 LEs                  ; No         ; |main|DHT11:SENSOR|Selector3                  ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |main|DHT11:SENSOR|Selector10                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
 
 
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: baud_rate_gen:uart_baud ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; RX_ACC_MAX     ; 325   ; Signed Integer                              ;
-; TX_ACC_MAX     ; 5208  ; Signed Integer                              ;
-; RX_ACC_WIDTH   ; 9     ; Signed Integer                              ;
-; TX_ACC_WIDTH   ; 13    ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:UART|baud_rate_gen:uart_baud ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; RX_ACC_MAX     ; 325   ; Signed Integer                                        ;
+; TX_ACC_MAX     ; 5208  ; Signed Integer                                        ;
+; RX_ACC_WIDTH   ; 9     ; Signed Integer                                        ;
+; TX_ACC_WIDTH   ; 13    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: transmitter:uart_tx ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; STATE_IDLE     ; 00    ; Unsigned Binary                         ;
-; STATE_START    ; 01    ; Unsigned Binary                         ;
-; STATE_DATA     ; 10    ; Unsigned Binary                         ;
-; STATE_STOP     ; 11    ; Unsigned Binary                         ;
-+----------------+-------+-----------------------------------------+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:UART|transmitter:uart_tx ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; STATE_IDLE     ; 00    ; Unsigned Binary                                   ;
+; STATE_START    ; 01    ; Unsigned Binary                                   ;
+; STATE_DATA     ; 10    ; Unsigned Binary                                   ;
+; STATE_STOP     ; 11    ; Unsigned Binary                                   ;
++----------------+-------+---------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: receiver:uart_rx ;
-+----------------+-------+--------------------------------------+
-; Parameter Name ; Value ; Type                                 ;
-+----------------+-------+--------------------------------------+
-; RX_STATE_START ; 00    ; Unsigned Binary                      ;
-; RX_STATE_DATA  ; 01    ; Unsigned Binary                      ;
-; RX_STATE_STOP  ; 10    ; Unsigned Binary                      ;
-+----------------+-------+--------------------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:UART|receiver:uart_rx ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; RX_STATE_START ; 00    ; Unsigned Binary                                ;
+; RX_STATE_DATA  ; 01    ; Unsigned Binary                                ;
+; RX_STATE_STOP  ; 10    ; Unsigned Binary                                ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "request_separator:SEPARADOR" ;
++------+--------+----------+------------------------------+
+; Port ; Type   ; Severity ; Details                      ;
++------+--------+----------+------------------------------+
+; ADDR ; Output ; Info     ; Explicitly unconnected       ;
++------+--------+----------+------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DHT11:SENSOR"                                                                                                                                                                          ;
++-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; start     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; start[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
++-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "uart:UART"               ;
++---------+-------+----------+------------------------+
+; Port    ; Type  ; Severity ; Details                ;
++---------+-------+----------+------------------------+
+; rdy_clr ; Input ; Info     ; Explicitly unconnected ;
++---------+-------+----------+------------------------+
 
 
 +-----------------------------------------------------+
@@ -346,21 +446,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 23                          ;
-; cycloneiii_ff         ; 66                          ;
-;     ENA               ; 23                          ;
-;     plain             ; 43                          ;
-; cycloneiii_lcell_comb ; 117                         ;
-;     arith             ; 20                          ;
-;         2 data inputs ; 20                          ;
-;     normal            ; 97                          ;
-;         1 data inputs ; 5                           ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 21                          ;
-;         4 data inputs ; 59                          ;
+; boundary_port         ; 22                          ;
+; cycloneiii_ff         ; 245                         ;
+;     CLR               ; 17                          ;
+;     ENA               ; 90                          ;
+;     ENA CLR           ; 41                          ;
+;     ENA CLR SCLR      ; 22                          ;
+;     plain             ; 75                          ;
+; cycloneiii_io_obuf    ; 1                           ;
+; cycloneiii_lcell_comb ; 361                         ;
+;     arith             ; 67                          ;
+;         2 data inputs ; 67                          ;
+;     normal            ; 294                         ;
+;         1 data inputs ; 19                          ;
+;         2 data inputs ; 52                          ;
+;         3 data inputs ; 77                          ;
+;         4 data inputs ; 146                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.19                        ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 3.30                        ;
 +-----------------------+-----------------------------+
 
 
@@ -369,7 +473,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -379,7 +483,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Tue Aug 29 21:44:24 2023
+    Info: Processing started: Mon Sep 25 22:49:07 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SensorDigital -c SensorDigital
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -391,22 +495,65 @@ Info (12021): Found 1 design units, including 1 entities, in source file transmi
     Info (12023): Found entity 1: transmitter File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/transmitter.v Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file uart.v
     Info (12023): Found entity 1: uart File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 18
-Info (12127): Elaborating entity "uart" for the top level hierarchy
-Info (12128): Elaborating entity "baud_rate_gen" for hierarchy "baud_rate_gen:uart_baud" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 34
-Info (12128): Elaborating entity "transmitter" for hierarchy "transmitter:uart_tx" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 41
-Info (12128): Elaborating entity "receiver" for hierarchy "receiver:uart_rx" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 48
+Info (12021): Found 1 design units, including 1 entities, in source file data_selector.v
+    Info (12023): Found entity 1: data_selector File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/data_selector.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file dht11.v
+    Info (12023): Found entity 1: DHT11 File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 17
+Info (12021): Found 1 design units, including 1 entities, in source file instr_decoder.v
+    Info (12023): Found entity 1: instr_decoder File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file main.v
+    Info (12023): Found entity 1: main File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file main_state_machine.v
+    Info (12023): Found entity 1: main_state_machine File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main_state_machine.v Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file packer.v
+    Info (12023): Found entity 1: packer File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/packer.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file request_separator.v
+    Info (12023): Found entity 1: request_separator File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/request_separator.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file send_pc.v
+    Info (12023): Found entity 1: send_pc File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/send_pc.v Line: 1
+Info (12127): Elaborating entity "main" for the top level hierarchy
+Info (12128): Elaborating entity "uart" for hierarchy "uart:UART" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 28
+Info (12128): Elaborating entity "baud_rate_gen" for hierarchy "uart:UART|baud_rate_gen:uart_baud" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 34
+Info (12128): Elaborating entity "transmitter" for hierarchy "uart:UART|transmitter:uart_tx" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 41
+Info (12128): Elaborating entity "receiver" for hierarchy "uart:UART|receiver:uart_rx" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 48
+Info (12128): Elaborating entity "DHT11" for hierarchy "DHT11:SENSOR" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 42
+Warning (10230): Verilog HDL assignment warning at DHT11.v(101): truncated value with size 32 to match size of target (6) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 101
+Warning (10230): Verilog HDL assignment warning at DHT11.v(254): truncated value with size 41 to match size of target (40) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 254
+Warning (10230): Verilog HDL assignment warning at DHT11.v(257): truncated value with size 41 to match size of target (40) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 257
+Warning (10230): Verilog HDL assignment warning at DHT11.v(307): truncated value with size 32 to match size of target (23) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 307
+Info (12128): Elaborating entity "instr_decoder" for hierarchy "instr_decoder:DECODIFICADOR" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 49
+Warning (10230): Verilog HDL assignment warning at instr_decoder.v(24): truncated value with size 32 to match size of target (1) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v Line: 24
+Warning (10230): Verilog HDL assignment warning at instr_decoder.v(30): truncated value with size 32 to match size of target (1) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v Line: 30
+Info (12128): Elaborating entity "request_separator" for hierarchy "request_separator:SEPARADOR" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 58
+Info (12128): Elaborating entity "main_state_machine" for hierarchy "main_state_machine:MAQUINA_ESTADOS" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 71
+Info (12128): Elaborating entity "data_selector" for hierarchy "data_selector:SELETOR" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 82
+Info (12128): Elaborating entity "packer" for hierarchy "packer:ORGANIZADOR" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 95
+Info (12128): Elaborating entity "send_pc" for hierarchy "send_pc:ENVIA_PC" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 107
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 32
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "request_separator:SEPARADOR|DONE_OUT" is converted into an equivalent circuit using register "request_separator:SEPARADOR|DONE_OUT~_emulated" and latch "request_separator:SEPARADOR|DONE_OUT~1" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/request_separator.v Line: 14
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/output_files/SensorDigital.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 156 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 12 input pins
-    Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 133 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4795 megabytes
-    Info: Processing ended: Tue Aug 29 21:44:33 2023
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:19
+Info (21057): Implemented 440 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 19 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 418 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4827 megabytes
+    Info: Processing ended: Mon Sep 25 22:49:17 2023
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:22
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/output_files/SensorDigital.map.smsg.
 
 

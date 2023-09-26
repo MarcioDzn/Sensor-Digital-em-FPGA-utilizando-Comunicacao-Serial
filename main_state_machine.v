@@ -12,21 +12,19 @@ module main_state_machine(
 		done_uart_rx, // Sinal de finalizacao de recepçao de dados pelo uart (PC -> Placa)
 		done_uart_tx, // Sinal de finalizacao de envio de dados pelo uart (Placa -> PC)
 		done_dht, // Sinal de finalizacao de envio de dados pelo DHT11
-		//continuous_rx, // Sinal referente ao recebimento de instrucao de sensoriamento continuo 
 		break_continuous, // Sinal referente a instrucao de finalizacao de sensoriamento continuo
 		state, // Saida referente ao tipo de estado em que se encontra
 		dht_out, // Sinal de start para o DHT11
-		//clr_uart, // Clear do UART, que limpa o sinal de done_dht 
 		en_request, // Sinal enviado para o modulo decodificador de instrucao
 		idle,
 		pack
 	);
 	
-	input clk_50m, done_uart_rx, done_uart_tx, /*continuous_rx,*/ break_continuous;
+	input clk_50m, done_uart_rx, done_uart_tx, break_continuous;
 	input done_dht;
 	
 	output reg[1:0] state;
-	output reg /*clr_uart,*/ dht_out, en_request, idle, pack;
+	output reg dht_out, en_request, idle, pack;
 		
 	localparam IDLE =2'b00, RECEIVE =2'b01, ORGANIZE = 2'b10, SEND =2'b11;
 	
@@ -54,8 +52,8 @@ always @(posedge clk_50m) begin: FSM
 	case(state)
 	
 			/* 
-			 * O estado inicial e' IDLE, e permanece assim enquanto done_uart_rx=0
-			 * Assim que os dados forem recebidos pelo `transmitter`, done_uart_rx = 1 e STATE=RECEIVE
+			 * Permanece em idle enquanto nenhum dado for enviado do
+			 * computador para a placa
 			 */
 			IDLE: begin
 				if (done_uart_rx && !break_continuous) begin
@@ -68,7 +66,7 @@ always @(posedge clk_50m) begin: FSM
 				
 				/* 
 				 * Caso seja solicitado o fim do sensoriamento continuo
-				 * envia direto para o SEND
+				 * empacota direto a resposta (nenhum dado precisará ser recebido do DHT11)
 				 */
 				else if (done_uart_rx && break_continuous) begin
 					state <= ORGANIZE;
@@ -115,12 +113,11 @@ always @(posedge clk_50m) begin: FSM
 				idle <= 0;
 				pack <= 0;
 			end
+			
 			/* 
-			 * Muda para o estado IDLE apo's o transmitter terminar de enviar
-			 *	os dados para o PC
-			 *
-			 * Envia um sinal de enable para o modulo que vai decodificar
-			 * o que foi solicitado (temperatura, umidade, status, etc.)
+			 * Permanece nesse estado até todos os bytes terem sido enviados 
+			 * para o computador
+			 * Quando finalizado o envio, retorna ao estado IDLE
 			 */
 			SEND: begin
 				if (done_uart_tx) begin
