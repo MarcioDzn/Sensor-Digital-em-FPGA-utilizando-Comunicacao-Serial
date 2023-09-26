@@ -22,8 +22,9 @@ Este repositório é o resultado do trabalho de uma equipe de estudantes para cr
      - [Data Selector](#ancoraSelector)
      - [Packer](#ancoraPacker)
      - [Send Pc](#ancoraSend)
-5. [Interfaces em C](#ancoraC)
-6. [Conclusão](#ancoraConclusao)
+5. [Testes](#ancoraTestes)
+6. [Interfaces em C](#ancoraC)
+7. [Conclusão](#ancoraConclusao)
 
 <a id="ancoraRequisitos"></a>
 
@@ -312,6 +313,9 @@ A interface do Receiver é projetada para ser executada em um computador e se co
 
 No geral, essas duas interfaces desempenham um papel fundamental no projeto, proporcionando ao usuário a capacidade de interagir com a FPGA e acessar as medições dos sensores de maneira eficiente e amigável. Elas tornam o projeto mais versátil, permitindo diferentes modos de operação e facilitando a detecção de problemas ou erros durante a comunicação e a coleta de dados. Além disso, tornam a FPGA uma solução mais acessível para monitoramento e controle de sensores em um ambiente de computação pessoal.
 
+
+<a id="ancoraTestes"></a>
+
 ## Testes
 
 A fim de se averiguar o funcionamento do projeto como um todo, foram realizados diversos diversos testes em ambiente controlado. Para assegurar as diversas possibilidades de requisições possíveis, foram realizados testes envolvendo diferentes instruções das presentes no protocolo tendo sido registrados os resultados das: requisição de sensoriamento contínuo de temperatura, desativação do sensoriamento contínuo, solicitação do status atual do sensor, medida de temperatura e medida de umidade. Os resultados desses podem ser visto nas imagens a seguir.
@@ -339,6 +343,7 @@ Para verificar o funcionamento das interfaces em C como um todo, se fez necessá
 
 ### DHT11
 
+- Para testar o sensor DHT11, conduzimos um teste conectando-o diretamente ao osciloscópio. Durante o teste, monitoramos os sinais elétricos gerados pelo sensor, incluindo os pulsos de dados que representam as leituras de temperatura e umidade. Essa abordagem nos permitiu verificar a saída do sensor e confirmar seu funcionamento adequado. A imagem abaixo é uma captura da tela do osciloscópio dos dados recebidos do DHT11.
 
 ### Teste do produto:
 - Para testar o produto como um todo, fez-se todas as solicitações possiveis ao sistema. Assim, para definir se as informações obtidas estavam corretas, observou-se se os dados obtidos estavam dentro do raio do sensor (20% a 80% para umidade e 0°C a 50°C para temperatura). Com estes dados validádos, para testar as funcionalidades do código, bastou fazer as solicitações ao sistema e observar suas respostas. As figuras a seguir mostram um exemplo do funcionamento do sistema.
