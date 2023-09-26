@@ -1,5 +1,5 @@
 Flow report for SensorDigital
-Tue Aug 29 21:44:48 2023
+Mon Sep 25 22:46:21 2023
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Tue Aug 29 21:44:48 2023          ;
+; Flow Status                        ; Successful - Mon Sep 25 22:46:21 2023          ;
 ; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                      ; SensorDigital                                  ;
-; Top-level Entity Name              ; uart                                           ;
+; Top-level Entity Name              ; main                                           ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE40F23C7                                   ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 125 / 39,600 ( < 1 % )                         ;
-;     Total combinational functions  ; 116 / 39,600 ( < 1 % )                         ;
-;     Dedicated logic registers      ; 66 / 39,600 ( < 1 % )                          ;
-; Total registers                    ; 66                                             ;
-; Total pins                         ; 23 / 329 ( 7 % )                               ;
+; Total logic elements               ; 395 / 39,600 ( < 1 % )                         ;
+;     Total combinational functions  ; 361 / 39,600 ( < 1 % )                         ;
+;     Dedicated logic registers      ; 245 / 39,600 ( < 1 % )                         ;
+; Total registers                    ; 245                                            ;
+; Total pins                         ; 22 / 329 ( 7 % )                               ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 1,161,216 ( 0 % )                          ;
 ; Embedded Multiplier 9-bit elements ; 0 / 232 ( 0 % )                                ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/29/2023 21:44:25 ;
+; Start date & time ; 09/25/2023 22:45:44 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SensorDigital       ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 237901794492886.169335626517432        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 91767983847.169569274319204            ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -87,11 +87,11 @@ https://fpgasoftware.intel.com/eula.
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --                                ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; uart        ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; uart        ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; uart        ; Top                               ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; main        ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; main        ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; main        ; Top                               ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                    ; uart                                   ; SensorDigital ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                    ; main                                   ; SensorDigital ; --          ; --                                ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
@@ -100,12 +100,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4795 MB             ; 00:00:19                           ;
-; Fitter               ; 00:00:07     ; 1.0                     ; 5686 MB             ; 00:00:10                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4717 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4817 MB             ; 00:00:02                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4815 MB             ; 00:00:20                           ;
+; Fitter               ; 00:00:13     ; 1.0                     ; 5693 MB             ; 00:00:13                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4700 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.0                     ; 4820 MB             ; 00:00:03                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4644 MB             ; 00:00:01                           ;
-; Total                ; 00:00:20     ; --                      ; --                  ; 00:00:33                           ;
+; Total                ; 00:00:31     ; --                      ; --                  ; 00:00:38                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
