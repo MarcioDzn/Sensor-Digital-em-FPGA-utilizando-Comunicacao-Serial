@@ -1,10 +1,10 @@
 module main(input clk,
     input pc_in,
     inout dht,
-    output pc_out,
+    output pc_out /*,
 	 output [1:0] state,
 	 output [7:0] ebyte1,
-	 output [7:0] ebyte2
+	 output [7:0] ebyte2 */
 );
 
 	wire [7:0] data_send, data_in, /*instr,*/ t_int, t_float, h_int, h_float, d_int, d_float, byte1, byte2, byte3;
@@ -13,8 +13,10 @@ module main(input clk,
 	wire en_tx, busy_tx, rx_en, done_sep, en_send, done_send, en_dht, done_dht, error_dht, en_pack;
 	wire break_cont, continuous, idle_fsm;
 
+	/*
 	assign ebyte1 = byte1;//byte1;
 	assign ebyte2 = byte2; // 01000101
+	*/
 	
   uart UART(.din(data_send),
     .wr_en(en_tx),

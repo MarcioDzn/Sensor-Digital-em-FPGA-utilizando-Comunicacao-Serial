@@ -59,10 +59,10 @@ always @(posedge clk_50m) begin: FSM
 			 */
 			IDLE: begin
 				if (done_uart_rx && !break_continuous) begin
-					state <= RECEIVE;
-					dht_out <= 1;
+					state <= RECEIVE; //Entra em estado de coleta
+					dht_out <= 1; //Habilita módulo DHT11
 					en_request <= 0;
-					idle <= 0;
+					idle <= 0; //Desliga sinal de espera
 					pack <= 0;
 				end
 				
@@ -71,17 +71,19 @@ always @(posedge clk_50m) begin: FSM
 				 * envia direto para o SEND
 				 */
 				else if (done_uart_rx && break_continuous) begin
-					state <= ORGANIZE;
+					state <= ORGANIZE; //Entra em estado de empacotamento
 					dht_out <= 0;
 					en_request <= 0;
-					idle <= 0;
-					pack <= 1;
+					idle <= 0; //Desliga sinal de espera
+					pack <= 1; //Habilita módulo packer
 				end
+				
+				//Enquanto não recebe um done_uart_tx, permanece em IDLE
 				else begin 
 					state <= IDLE;
 					dht_out <= 0;
 					en_request <= 0;
-					idle <= 1;
+					idle <= 1; //Sinal de espera continua ativo
 					pack <= 0;
 				end
 				
@@ -93,15 +95,17 @@ always @(posedge clk_50m) begin: FSM
 			 */
 			RECEIVE: begin
 				if (done_dht) begin
-					state <= ORGANIZE;
-					dht_out <= 0;
+					state <= ORGANIZE; //Entra em estado de empacotamento
+					dht_out <= 0; //Desabilita módulo DHT11
 					en_request <= 0;
 					idle <= 0;
-					pack <= 1;
+					pack <= 1; //Habilita módulo packer
 				end  
+				
+				//Enquanto não recebe um done_dht, permanece em RECEIVE
 				else begin
 					state <= RECEIVE;
-					dht_out <= 1;
+					dht_out <= 1; //Habilita o módulo DHT11
 					en_request <= 0;
 					idle <= 0;
 					pack <= 0;
@@ -109,11 +113,11 @@ always @(posedge clk_50m) begin: FSM
 			end
 			
 			ORGANIZE: begin
-				state <= SEND;
+				state <= SEND; //Entra em estado de envio
 				dht_out <= 0;
 				en_request <= 0;
 				idle <= 0;
-				pack <= 0;
+				pack <= 0; //Desabilita módulo packer
 			end
 			/* 
 			 * Muda para o estado IDLE apo's o transmitter terminar de enviar
@@ -124,16 +128,18 @@ always @(posedge clk_50m) begin: FSM
 			 */
 			SEND: begin
 				if (done_uart_tx) begin
-					state <= IDLE;
+					state <= IDLE; //Entra em estado de espera
 					dht_out <= 0;
 					en_request <= 0;
-					idle <= 1;
+					idle <= 1; //Ativa sinal que indica espera
 					pack <= 0;
 				end
+				
+				//Enquanto não recebe um done_uart_tx permanece em SEND
 				else  begin
 					state <= SEND;
 					dht_out <= 0;
-					en_request <= 1;
+					en_request <= 1; //Habilita módulo send_pc
 					idle <= 0;
 					pack <= 0;
 				end	

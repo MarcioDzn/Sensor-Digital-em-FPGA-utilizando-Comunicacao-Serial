@@ -1,11 +1,25 @@
 
-State Machine - |uart|receiver:uart_rx|state
+State Machine - |main|DHT11:SENSOR|state
+Name state.STOP state.s10 state.s9 state.s8 state.s7 state.s6 state.s5 state.s4 state.s3 state.s2 state.s1 
+state.s1 0 0 0 0 0 0 0 0 0 0 0 
+state.s2 0 0 0 0 0 0 0 0 0 1 1 
+state.s3 0 0 0 0 0 0 0 0 1 0 1 
+state.s4 0 0 0 0 0 0 0 1 0 0 1 
+state.s5 0 0 0 0 0 0 1 0 0 0 1 
+state.s6 0 0 0 0 0 1 0 0 0 0 1 
+state.s7 0 0 0 0 1 0 0 0 0 0 1 
+state.s8 0 0 0 1 0 0 0 0 0 0 1 
+state.s9 0 0 1 0 0 0 0 0 0 0 1 
+state.s10 0 1 0 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|uart:UART|receiver:uart_rx|state
 Name state.RX_STATE_START state.RX_STATE_STOP state.RX_STATE_DATA 
 state.RX_STATE_START 0 0 0 
 state.RX_STATE_DATA 1 0 1 
 state.RX_STATE_STOP 1 1 0 
 
-State Machine - |uart|transmitter:uart_tx|state
+State Machine - |main|uart:UART|transmitter:uart_tx|state
 Name state.STATE_STOP state.STATE_DATA state.STATE_START state.STATE_IDLE 
 state.STATE_IDLE 0 0 0 0 
 state.STATE_START 0 0 1 1 

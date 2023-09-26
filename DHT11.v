@@ -17,14 +17,14 @@
 module DHT11(
 	input wire clk_50mhz,
 	input wire start,
-	input wire rst_n,
-	inout dat_io,
+	input wire rst_n, //Sinal que habilita funcionamento do módulo e da máquina de estados aqui presente
+	inout dat_io, //Bidirecional
 	output [7:0] HUM_INT,
 	output [7:0] HUM_FLOAT,
-	output [7:0] TEMP_INT,
-	output [7:0] TEMP_FLOAT,
-	output error, 
-	output done 
+	output [7:0] TEMP_INT, //Inteiro de temperatura
+	output [7:0] TEMP_FLOAT, //Fracionário de temperatura
+	output error, //Saída para indicação de erro
+	output done //Sinal de finalização de leitura
 );
 
 	wire din;
@@ -43,14 +43,14 @@ module DHT11(
 	localparam s10 = 9;
 	localparam STOP = 10;
 	
-	assign dat_io = read_flag ? 1'bz : dout;
-	assign din = dat_io;
-	assign done =  done_reg; 
-	assign error = error_reg; 
+	assign dat_io = read_flag ? 1'bz : dout; //Direcionamento do pino inout
+	assign din = dat_io; //Entrada de dados do DHT11
+	assign done =  done_reg; //Sinal de finalização de leitura
+	assign error = error_reg; //Sinal indicativo de erro
 	reg [5:0]data_cnt, count_50;
-	reg [22:0] count_5_sec;
+	reg [22:0] count_5_sec; //Contador para atingir 5 segundos
 	reg start_f1, start_f2, start_rising, clk_1mhz, error_reg, done_reg;
-	reg [39:0] data;
+	reg [39:0] data; //Dados coletados
 	
 	/* Atribuição dos dados recebidos ao respectivo registrador */
 	assign TEMP_INT[0] = data[16];
@@ -123,7 +123,7 @@ module DHT11(
   
 	always @(posedge clk_1mhz or negedge rst_n) begin
 		/* Seta os registradores com seus valores padrão */
-		if(rst_n == 1'b0) begin
+		if(rst_n == 1'b0) begin //
 			error_reg <= error_reg;
 			done_reg <= 1'b0;
 			read_flag <= 1'b1;
@@ -303,7 +303,7 @@ module DHT11(
 						state <= s1; // Volta pra o estado s1
 						done_reg <= 1'b1;
 					
-					end else begin
+					end else begin //Enquanto não atingir 5 segundos, permanece na contagem e done permanece 0.
 						count_5_sec <= count_5_sec + 1;
 						state <= STOP; 
 						done_reg <= 1'b0;

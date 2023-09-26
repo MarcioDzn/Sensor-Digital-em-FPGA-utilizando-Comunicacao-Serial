@@ -14,6 +14,7 @@ module instr_decoder(input [2:0] INSTR,
 
   localparam STATUS = 3'd0, TEMP = 3'd1, HUMID = 3'd2, TEMP_CONT = 3'd3, HUMID_CONT = 3'd4, X_TEMP_CONT = 3'd5, X_HUMID_CONT = 3'd6, IDLE = 3'd7;
   
+  //Códigos de possíveis tipos de dados a serem requisitados.
   localparam T = 2'b01, H = 2'b10, S = 2'b11, N = 2'b00; //T = temperatura, H = umidade, S = status, N = nada.
 
   // Operador ternario: (condição) ? true : false
@@ -29,14 +30,7 @@ module instr_decoder(input [2:0] INSTR,
    */
   assign BREAK_CONTINUOUS = (INSTR == X_TEMP_CONT || INSTR == X_HUMID_CONT) ? 1 : 0;
 
-
-/* generate
- *   if (INSTR == STATUS) DATA_TYPE = S;
- *   else if (INSTR == TEMP || INSTR == TEMP_CONT) DATA_TYPE = T;
- *   else DATA_TYPE = H;  *endgenerate 
-  */
-
-  //assign DATA_TYPE = (INSTR == STATUS) ? S : ((INSTR == TEMP || INSTR == TEMP_CONT || INSTR == X_TEMP_CONT) ? T : H);
+  //Atribui a DATA_TYPE um valor que define o tipo de dado requisitado.
   assign DATA_TYPE = (INSTR == STATUS) ? S : ((INSTR == TEMP || INSTR == TEMP_CONT || INSTR == X_TEMP_CONT) ? T : (INSTR == HUMID || INSTR == HUMID_CONT || INSTR == X_HUMID_CONT) ? H : N);
   
 endmodule

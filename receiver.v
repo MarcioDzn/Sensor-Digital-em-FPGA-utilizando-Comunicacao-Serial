@@ -34,7 +34,7 @@ reg [3:0] bitpos = 0;
 reg [7:0] scratch = 8'b0;
 
 always @(posedge clk_50m) begin
-	if (rdy && state == RX_STATE_START) 
+	if (rdy && state == RX_STATE_START) // Garante que rdy irá se resetar após recepção de byte 
 		rdy <= 0;
 
 	if (clken) begin

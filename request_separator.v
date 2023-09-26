@@ -4,8 +4,8 @@
  */
  
 module request_separator( 
-	input IDLE,
-	input EN, // Sinal de enable do rx do UART
+	input IDLE, //Sinal de idle vindo da main_state_machine
+	input EN, // Sinal de enable do rx do UART (rdy)
 	input [7:0] DATA, // Dados advindos do módulo UART
    input CONTINUOUS_EN, // Enable referente à solicitação continua
 	output [2:0] INSTR, // Instrução
@@ -16,8 +16,8 @@ module request_separator(
 	reg[2:0] INSTR_REG = 0; //3 bits = suficiente para 7 possibilidades de instrução
 	reg[4:0] ADDR_REG = 0; //5 bits = suficiente para 32 possibilidades de endereços
 
-	reg counter = 0; // 
-	reg DONE = 0;
+	reg counter = 0; //Contador para identificação de byte recebido
+	reg DONE = 0; //Sinal de finalização de recepção de 2 bytes
 	
 	/* 
 	 *	A cada borda de subida do EN (enable), atribui o dado recebido pelo rx 

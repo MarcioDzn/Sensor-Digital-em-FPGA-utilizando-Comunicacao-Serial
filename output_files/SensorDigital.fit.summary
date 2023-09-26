@@ -1,16 +1,16 @@
-Fitter Status : Successful - Tue Aug 29 21:44:41 2023
-Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Fitter Status : Successful - Tue Sep 26 02:52:56 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : SensorDigital
-Top-level Entity Name : uart
+Top-level Entity Name : main
 Family : Cyclone IV E
-Device : EP4CE40F23C7
+Device : EP4CE30F23C7
 Timing Models : Final
-Total logic elements : 125 / 39,600 ( < 1 % )
-    Total combinational functions : 116 / 39,600 ( < 1 % )
-    Dedicated logic registers : 66 / 39,600 ( < 1 % )
-Total registers : 66
-Total pins : 23 / 329 ( 7 % )
+Total logic elements : 401 / 28,848 ( 1 % )
+    Total combinational functions : 364 / 28,848 ( 1 % )
+    Dedicated logic registers : 245 / 28,848 ( < 1 % )
+Total registers : 245
+Total pins : 4 / 329 ( 1 % )
 Total virtual pins : 0
-Total memory bits : 0 / 1,161,216 ( 0 % )
-Embedded Multiplier 9-bit elements : 0 / 232 ( 0 % )
+Total memory bits : 0 / 608,256 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
 Total PLLs : 0 / 4 ( 0 % )
