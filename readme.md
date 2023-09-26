@@ -74,7 +74,8 @@ O protocolo de comunicação projetado para este projeto possui como base as dua
 ## Fluxograma geral:
 <div align=center>
 
-![Alt text](image.png)
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/4b8a7a81-7b3c-4c92-ab3f-c270d1367f4f)
+
 </div>
 
 <a id="ancoraModulos"></a>
@@ -132,7 +133,8 @@ No contexto geral do projeto, o módulo `DHT11` permite a coleta de dados de um 
 
 <div align=center>
 
-![Alt text](image-1.png)
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/163addcb-93e9-4e08-842d-3b45ab69950f)
+
 </div>
 
 <a id="ancoraMainStateMachine"></a>
@@ -157,7 +159,8 @@ O módulo `main_state_machine` desempenha um papel crítico na coordenação das
 </br>
 <div align=center>
 
-![Alt text](image-3.png)
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/06d12ff0-dde6-49d4-abf3-ce215e78093a)
+
 </div>
 </br>
 
@@ -337,6 +340,13 @@ Para verificar o funcionamento das interfaces em C como um todo, se fez necessá
 
 - Para verificar a transmissão da FPGA para o computador, atribui-se pinos de propósito geral aos transmissores da UART, assim, ao ligar tais pinos no osciloscopio é possivel constatar o funcionamento do transmissor da placa.
 
+<div align=center>
+
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/2a75ed4a-6e00-44b3-b553-cc231557712d)
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/c9a00bd5-eed9-42f3-8826-a496edb33bc0)
+</div>
+
+
 #### Recepção:
 
 - Para testar a recepção, envia-se os dados através do computador que já teve sua transmissão validada. Desta forma é possivel atribuir pinos na matriz de led da placa e validar a recepção dos dados.
@@ -345,8 +355,24 @@ Para verificar o funcionamento das interfaces em C como um todo, se fez necessá
 
 - Para testar o sensor DHT11, conduzimos um teste conectando-o diretamente ao osciloscópio. Durante o teste, monitoramos os sinais elétricos gerados pelo sensor, incluindo os pulsos de dados que representam as leituras de temperatura e umidade. Essa abordagem nos permitiu verificar a saída do sensor e confirmar seu funcionamento adequado. A imagem abaixo é uma captura da tela do osciloscópio dos dados recebidos do DHT11.
 
+<div align=center>
+
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/e394a092-f9b7-4998-9b3c-c8ff77738e20)
+</div>
+
 ### Teste do produto:
 - Para testar o produto como um todo, fez-se todas as solicitações possiveis ao sistema. Assim, para definir se as informações obtidas estavam corretas, observou-se se os dados obtidos estavam dentro do raio do sensor (20% a 80% para umidade e 0°C a 50°C para temperatura). Com estes dados validádos, para testar as funcionalidades do código, bastou fazer as solicitações ao sistema e observar suas respostas. As figuras a seguir mostram um exemplo do funcionamento do sistema.
+
+<div align=center>
+
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/009cebea-bd12-46d4-9367-db1e532dc2c5)
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/3d28a7c8-339a-4a31-8a5f-1d8f9d1a2668)
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/2476ad1c-94ca-45a9-ab4a-b6312fe43111)
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/c990a6a1-cda3-47ef-9708-9114d620113c)
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/d50f6ad6-3bb1-44a4-9cbf-180966a79a9e)
+
+
+</div>
 
 
 
