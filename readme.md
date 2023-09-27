@@ -173,7 +173,7 @@ Figura 2 - Máquina de estados DHT11
 
 ### **Main State Machine:**
 
-O módulo `main_state_machine` desempenha um papel crítico na coordenação das várias etapas do sistema e na comunicação entre os módulos envolvidos. Os estados e operações realizadas pelo `main_state_machine` são:
+O módulo `main_state_machine` (Figura 3) desempenha um papel crítico na coordenação das várias etapas do sistema e na comunicação entre os módulos envolvidos. Os estados e operações realizadas pelo `main_state_machine` são:
 
 
 #### IDLE: 
@@ -372,7 +372,7 @@ Para verificar o funcionamento das interfaces em C como um todo, se fez necessá
 
 #### Transmissão:
 
-- Para verificar a transmissão da FPGA para o computador, atribui-se pinos de propósito geral aos transmissores da UART, assim, ao ligar tais pinos no osciloscopio é possivel constatar o funcionamento do transmissor da placa.
+- Para verificar a transmissão da FPGA para o computador, atribui-se pinos de propósito geral aos transmissores da UART, assim, ao ligar tais pinos no osciloscópio é possivel constatar o funcionamento do transmissor da placa (Figura 4 e Figura 5).
 
 <div align=center>
 
@@ -397,7 +397,7 @@ Figura 5 - Resposta no osciloscópio.
 
 ### DHT11
 
-- Para testar o sensor DHT11, conduzimos um teste conectando-o diretamente ao osciloscópio. Durante o teste, monitoramos os sinais elétricos gerados pelo sensor, incluindo os pulsos de dados que representam as leituras de temperatura e umidade. Essa abordagem nos permitiu verificar a saída do sensor e confirmar seu funcionamento adequado. A imagem abaixo é uma captura da tela do osciloscópio dos dados recebidos do DHT11.
+- Para testar o sensor DHT11, conduzimos um teste conectando-o diretamente ao osciloscópio. Durante o teste, monitoramos os sinais elétricos gerados pelo sensor, incluindo os pulsos de dados que representam as leituras de temperatura e umidade. Essa abordagem nos permitiu verificar a saída do sensor e confirmar seu funcionamento adequado. A imagem abaixo (Figura 6) é uma captura da tela do osciloscópio dos dados recebidos do DHT11.
 
 <div align=center>
 
@@ -447,6 +447,15 @@ Figura 11 - Solicitação da interrupção da medida de temperatura continua na 
 ## Conclusão
 
 - Finalizados o planejamento do circuito e a descrição do mesmo na linguagem Verilog, foi realizada a compilação e síntese do mesmo por meio do Quartus II. Com o relatório de utilização de recursos, este gerado pelo próprio Quartus II ao compilar o projeto, pôde-se verificar que o circuito se aproveita de 401 dos 28848 elementos lógicos presentes da FPGA para o qual foi projetado, sendo 156 combinacionais sem registros, 40 de apenas registros e 205 combinacionais com registros, com todos eles sendo utilizados em seu modo normal. Desses 401 elementos lógicos, 146 são de LUT (Lookup Table) de quatro entradas, 77 são de três entradas e 138 são de duas ou menos entradas. Além disso, foram utilizados, parcial ou completamente, 33 dos 1803 LABs disponíveis.
+
+<div align=center>
+</br>
+
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/a429c3aa-cdfa-4dff-97d3-5cf0bd49f499)
+</br>
+Figura 12 - Relatório de uso da FPGA
+</br>
+</div>
 
 
 - A partir dos testes realizados, foi possível comprovar o funcionamento do sistema como se era esperado. As respostas eram sempre recebidas no devido tempo definido, e os resultados demonstrados eram consistentes e condizentes com o ambiente de testes. Além disso, todos os devidos bytes de envio previstos no protocolo foram corretamente recebidos no computador.
