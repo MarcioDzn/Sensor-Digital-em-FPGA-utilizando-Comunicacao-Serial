@@ -11,9 +11,10 @@ Este repositório é o resultado do trabalho de uma equipe de estudantes para cr
 
 ## Indice:
 1. [Requisitos do projeto](#ancoraRequisitos)
-2. [Protocolo](#ancoraProtocolo)
-3. [Fluxograma geral](#ancoraFluxograma)
-4. [Módulos utilizados](#ancoraModulos)
+2. [Recursos utilizados](#ancoraRecursos)
+3. [Protocolo](#ancoraProtocolo)
+4. [Fluxograma geral](#ancoraFluxograma)
+5. [Módulos utilizados](#ancoraModulos)
      - [UART](#ancoraUART)
      - [DHT11](#ancoraDHT11)
      - [Main State Machine](#ancoraMainStateMachine)
@@ -22,9 +23,9 @@ Este repositório é o resultado do trabalho de uma equipe de estudantes para cr
      - [Data Selector](#ancoraSelector)
      - [Packer](#ancoraPacker)
      - [Send Pc](#ancoraSend)
-5. [Testes](#ancoraTestes)
-6. [Interfaces em C](#ancoraC)
-7. [Conclusão](#ancoraConclusao)
+6. [Testes](#ancoraTestes)
+7. [Interfaces em C](#ancoraC)
+8. [Conclusão](#ancoraConclusao)
 
 <a id="ancoraRequisitos"></a>
 
@@ -39,6 +40,16 @@ Este repositório é o resultado do trabalho de uma equipe de estudantes para cr
 - Os comandos devem ser compostos por palavras de 8 bits.
 - As requisições e respostas com 2 bytes.
 
+<a id="ancoraRecursos"></a>
+
+## Recursos utilizados
+
+- FPGA Mercurio IV Devkit - Cyclone IV EP4CE30F23
+- Sensor de temperatura e umidade DHT11
+- Quartus 20.1
+- Verilog HDL
+- Visual Studio Code
+
 <a id="ancoraProtocolo"></a>
 
 ## Protocolo:
@@ -48,26 +59,33 @@ O protocolo de comunicação projetado para este projeto possui como base as dua
 </br>
 <div align=center>
 
-|        |           **Comandos de requisição**           |   |        |                      **Comandos de resposta.**                      |
-|--------|:----------------------------------------------:|---|--------|:-------------------------------------------------------------------:|
-|**Código**|          **Descrição do comando**              |   |**Código**|                        **Descrição**                              |
-|  0x00  |       Solicita a situação atual do sensor      |   |  0x1F  |                         Sensor com problema                         |
-|  0x01  |     Solicita a medida de temperatura atual     |   |  0x07  |                    Sensor funcionando normalmente                   |
-|  0x02  |       Solicita a medida de umidade atual       |   |  0x08  |                          Medida de umidade                          |
-|  0x03  |   Ativa sensoriamento contínuo de temperatura  |   |  0x09  |                        Medida de temperatura                        |
-|  0x04  |     Ativa sensoriamento contínuo de umidade    |   |  0x0A  | Confirmação de desativação de sensoriamento contínuo de temperatura |
-|  0x05  | Desativa sensoriamento contínuo de temperatura |   |  0x0B  |   Confirmação de desativação de sensoriamento contínuo  de umidade  |
-|  0x06  |   Desativa sensoriamento contínuo  de umidade  |   |        |                                                                     |
+ Comandos de requisição. | Descrição do comando                            |   | Comandos de resposta. | Descrição                                                            |
+-------------------------|-------------------------------------------------|---|-----------------------|----------------------------------------------------------------------|
+ 0x00                    | Solicita a situação atual do sensor             |   | 0x1F                  | Sensor com problema                                                  | 
+ 0x01                    | Solicita a medida de temperatura atual          |   | 0x07                  | Sensor funcionando normalmente                                       | 
+ 0x02                    | Solicita a medida de umidade atual              |   | 0x08                  | Medida de umidade                                                    | 
+ 0x03                    | Ativa sensoriamento contínuo de temperatura     |   | 0x09                  | Medida de temperatura                                                | 
+ 0x04                    | Ativa sensoriamento contínuo de umidade         |   | 0x0A                  | Confirmação de desativação de sensoriamento contínuo de temperatura  | 
+ 0x05                    | Desativa sensoriamento contínuo de temperatura  |   | 0x0B                  | Confirmação de desativação de sensoriamento contínuo  de umidade     | 
+ 0x06                    | Desativa sensoriamento contínuo  de umidade     |   | 0xFF                  | Resposta nula (SUPER_IDLE)                                           | 
+
 </div>
 </br>
 
 #### Todo o processo de comunicação entre o computador e a FPGA se baseia no envio sempre de 2 bytes. Portanto analisando individualmente:
   
 ### Envio Computador -> FPGA
-- Os 2 bytes enviados do computador para a FPGA representam, em ordem de envio, o comando de instrução e o endereço de sensor desejado.
+- Enviados 2 bytes, em ordem: 1 byte de instrução + 1 byte de endereço.
+- Exemplo: (requisição de status): [0x00], [Endereço do sensor].
+
 
 ### Envio FPGA -> Computador
-- Para este projeto, foi convencionado que todas as respostas serão enviadas em 2 grupos de 2 bytes. Os primeiros 2 bytes, em todos os casos independentemente da requisição, representam o comando de resposta correspondente ao pedido realizado. Caso a requisição seja uma relacionada ao envio de valores medidos pelo DHT11, tal como medida de temperatura ou umidade, contínuos ou não, os próximos 2 bytes estarão relacionados aos valores inteiros e fracionários adquiridos por meio do sensor. Entretanto, caso seja uma requisição que não necessita de nenhum tipo de valor medido, ou caso haja um erro na medição do DHT11, os 4 bytes de resposta serão todos iguais, sendo compostos apenas dos comandos de resposta.
+- Enviados inicialmente 2 bytes de retorno, que representarão a resposta de dados a ser enviada pela FPGA (tabela de comandos de resposta.
+- Enviados, se necessário, 2 bytes referentes aos dados coletados pela FPGA através do DHT11 (exemplo: medida de temperatura ou de umidade).
+- Requisições como a observação do status de funcionamento ou desativação de sensoriamento contínuo não necessitam de bytes de dados. Portanto, os últimos 2 bytes serão os comandos de resposta mais uma vez.
+     - Exemplo 1 (resposta de status): [0x07], [0x07], [0x07], [0x07].
+     - Exemplo 2 (resposta de medida de temperatura): [0x09], [0x09], [Medida do DHT11: Inteiro], [Medida do DHT11: Fracionário].
+
 
 <a id="ancoraFluxograma"></a>
 
@@ -75,8 +93,17 @@ O protocolo de comunicação projetado para este projeto possui como base as dua
 <div align=center>
 
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/4b8a7a81-7b3c-4c92-ab3f-c270d1367f4f)
+</br>
+</br>
+Figura 1 - Fluxograma geral do sistema
+</br>
+</br>
 
 </div>
+
+- De forma resumida, o projeto funciona sob uma máquina de estados que serve de módulo controlador para cada etapa do processo, o qual possui 4 estados: espera (IDLE), coleta (RECEIVE), empacotamento (ORGANIZE) e envio (SEND). 
+- De início, com a máquina em estado de espera, devem ser recebidos do computador, por meio da UART, os 2 bytes que se referem à requisição e ao endereço do sensor. Recebidos estes, a máquina passa para o estado de coleta e lá permanece até que o módulo DHT11 determine que sua leitura foi finalizada. Após a coleta, a máquina em estado de empacotamento ordena que sejam organizados os dados que deverão ser enviados de volta ao computador mais posteriormente. Com os dados devidamente selecionados e organizados, a máquina entra em estado de envio, e não retorna ao estado de espera até que todo o processo de envio tenha sido finalizado corretamente. A figura 1 representa, de forma simplificada e resumida, o caminho dos dados no funcionamento do projeto.
+
 
 <a id="ancoraModulos"></a>
 
@@ -99,7 +126,7 @@ O módulo UART lida com a comunicação serial entre a FPGA e o computador, bem 
 <a id="ancoraDHT11"></a>
 
 ### **DHT11:**
-No contexto geral do projeto, o módulo `DHT11` permite a coleta de dados de um sensor DHT11 e disponibiliza as medições de temperatura e umidade para uso no projeto. O sinal `error` indica se ocorreu algum erro durante a coleta de dados, enquanto `done` indica quando a coleta foi concluída. Este módulo pode ser entendido como uma MEF, a seguir é possivél observar a função de cada estado:
+No contexto geral do projeto, o módulo `DHT11` permite a coleta de dados de um sensor DHT11 e disponibiliza as medições de temperatura e umidade para uso no projeto. O sinal `error` indica se ocorreu algum erro durante a coleta de dados, enquanto `done` indica quando a coleta foi concluída. Este módulo pode ser entendido como uma MEF (Figura 2), a seguir é possivél observar a função de cada estado:
 
 #### s1 - Idle: 
 - O módulo aguarda um sinal de `start` para a ativação. Quando esse sinal é detectado, ele muda para o estado `s2`.
@@ -108,7 +135,7 @@ No contexto geral do projeto, o módulo `DHT11` permite a coleta de dados de um 
 - Após a detecção de `start`, o módulo espera 19 ms antes de iniciar a comunicação com o sensor. Depois disso, ele muda para o estado `s3`.
 
 #### s3 - Data Request: 
-- O módulo envia uma solicitação de dados ao sensor DHT11 e aguarda a resposta. Se a resposta for detectada, ele muda para o estado `s4`. Caso contrário, ele pode entrar em um estado de erro.
+- Agora, o módulo aguarda mais um período de tempo (20-40 µs) antes de liberar o barramento de dados para leitura pelo sensor DHT11. Ele entra em `s4` após esse intervalo de tempo.
 
 #### s4 - Data Response: 
 - O módulo aguarda a resposta do sensor indicando que está pronto para transmitir dados. Quando a resposta é detectada, ele muda para o estado `s5`.
@@ -134,6 +161,11 @@ No contexto geral do projeto, o módulo `DHT11` permite a coleta de dados de um 
 <div align=center>
 
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/163addcb-93e9-4e08-842d-3b45ab69950f)
+</br>
+</br>
+Figura 2 - Máquina de estados DHT11
+</br>
+</br>
 
 </div>
 
@@ -160,6 +192,8 @@ O módulo `main_state_machine` desempenha um papel crítico na coordenação das
 <div align=center>
 
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/06d12ff0-dde6-49d4-abf3-ce215e78093a)
+
+Figura 3 - Máquina de estados DHT11
 
 </div>
 </br>
@@ -343,7 +377,17 @@ Para verificar o funcionamento das interfaces em C como um todo, se fez necessá
 <div align=center>
 
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/2a75ed4a-6e00-44b3-b553-cc231557712d)
+</br>
+Figura 4 - Ponta de prova do osciloscópio conectada a porta serial.
+</br>
+</br>
+
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/c9a00bd5-eed9-42f3-8826-a496edb33bc0)
+
+Figura 5 - Resposta no osciloscópio.
+</br>
+</br>
+
 </div>
 
 
@@ -358,6 +402,10 @@ Para verificar o funcionamento das interfaces em C como um todo, se fez necessá
 <div align=center>
 
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/e394a092-f9b7-4998-9b3c-c8ff77738e20)
+</br>
+Figura 6 - Resposta sensor DHT11.
+</br>
+</br>
 </div>
 
 ### Teste do produto:
@@ -366,14 +414,32 @@ Para verificar o funcionamento das interfaces em C como um todo, se fez necessá
 <div align=center>
 
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/009cebea-bd12-46d4-9367-db1e532dc2c5)
+</br>
+Figura 7 - Solicitação do status do sensor na esquerda e comando de resposta na direita.
+</br>
+</br>
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/3d28a7c8-339a-4a31-8a5f-1d8f9d1a2668)
+</br>
+Figura 8 - Solicitação da temperatura atual na esquerda e comando de resposta na direita.
+</br>
+</br>
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/2476ad1c-94ca-45a9-ab4a-b6312fe43111)
+</br>
+Figura 9 - Solicitação da umidade atual na esquerda e comando de resposta na direita.
+</br>
+</br>
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/c990a6a1-cda3-47ef-9708-9114d620113c)
+</br>
+Figura 10 - Solicitação da temperatura continua na esquerda e comando de resposta na direita.
+</br>
+</br>
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/d50f6ad6-3bb1-44a4-9cbf-180966a79a9e)
-
+</br>
+Figura 11 - Solicitação da interrupção da medida de temperatura continua na esquerda e comando de resposta na direita.
+</br>
+</br>
 
 </div>
-
 
 
 <a id="ancoraConclusao"></a>
