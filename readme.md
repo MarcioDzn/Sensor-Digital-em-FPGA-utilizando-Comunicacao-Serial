@@ -192,7 +192,7 @@ No contexto geral do projeto, o módulo `DHT11` permite a coleta de dados de um 
 
 <div align=center>
 
-![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/163addcb-93e9-4e08-842d-3b45ab69950f)
+![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/98599229/2182766a-d40b-46d1-aa48-89292ea88f90)
 </br>
 </br>
 Figura 2 - Máquina de estados DHT11
