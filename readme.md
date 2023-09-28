@@ -8,10 +8,10 @@
 Este repositório é o resultado do trabalho de uma equipe de estudantes para criar um protótipo de sistema IoT para monitorar a temperatura e umidade de ambientes usando uma plataforma FPGA. Como sensor, o projeto conta com o DHT11 que por sua vez é acoplado a FPGA Mercurio IV Devkit. Assim a FPGA implementa uma interface UART para receber, executar e responder a comandos enviados através de uma porta serial por um computador. Para que a interação com o computador seja possível, a equipe também desenvolveu um sistema de teste em C para enviar comandos e exibir respostas nos computadores. Será discriminado durante este relatório os conceitos envolvidos durante a construção do protótipo, bem como as decisões de projetos da equipe.
 
 ## Componentes da equipe: 
-- Antonio Vitor Costa da Silva
-- Gabriel Costa Baptista
-- Luis Pereira de Carvalho 
-- Márcio Roberto Fernandes dos Santos Lima.
+- Antonio Vitor Costa da Silva [avcsilva](https://github.com/avcsilva)
+- Gabriel Costa Baptista [BaptistaGabriel](https://github.com/BaptistaGabriel)
+- Luis Pereira de Carvalho [LuisBaiano](https://github.com/LuisBaiano)
+- Márcio Roberto Fernandes dos Santos Lima [MarcioDzn](https://github.com/MarcioDzn)
 
 <a name="ancora"></a>
 
