@@ -6,7 +6,12 @@
 ## Breve descrição do problema:
 
 Este repositório é o resultado do trabalho de uma equipe de estudantes para criar um protótipo de sistema IoT para monitorar a temperatura e umidade de ambientes usando uma plataforma FPGA. Como sensor, o projeto conta com o DHT11 que por sua vez é acoplado a FPGA Mercurio IV Devkit. Assim a FPGA implementa uma interface UART para receber, executar e responder a comandos enviados através de uma porta serial por um computador. Para que a interação com o computador seja possível, a equipe também desenvolveu um sistema de teste em C para enviar comandos e exibir respostas nos computadores. Será discriminado durante este relatório os conceitos envolvidos durante a construção do protótipo, bem como as decisões de projetos da equipe.
-Componentes da equipe: Antonio Vitor Costa da Silva, Gabriel Costa Baptista, Luis Pereira de Carvalho, Márcio Roberto Fernandes dos Santos Lima.
+
+## Componentes da equipe: 
+- Antonio Vitor Costa da Silva
+- Gabriel Costa Baptista
+- Luis Pereira de Carvalho 
+- Márcio Roberto Fernandes dos Santos Lima.
 
 <a name="ancora"></a>
 
@@ -129,35 +134,61 @@ O módulo UART lida com a comunicação serial entre a FPGA e o computador, bem 
 ### **DHT11:**
 No contexto geral do projeto, o módulo `DHT11` permite a coleta de dados de um sensor DHT11 e disponibiliza as medições de temperatura e umidade para uso no projeto. O sinal `error` indica se ocorreu algum erro durante a coleta de dados, enquanto `done` indica quando a coleta foi concluída. Este módulo pode ser entendido como uma MEF (Figura 2), a seguir é possivél observar a função de cada estado:
 
-#### s1 - Idle: 
-- O módulo aguarda um sinal de `start` para a ativação. Quando esse sinal é detectado, ele muda para o estado `s2`.
+#### Estado s1 - Preparação para Envio de Nível Baixo para o DHT11:
+- Neste estado, a máquina de estados se prepara para iniciar a comunicação com o sensor DHT11.
+- Se o sinal de `start` subir e o dado de entrada `din` for alto (`1'b1`), a máquina de estados transita para o próximo estado (`s2`).
+- A variável `read_flag` é configurada para `1'b0`, indicando que a comunicação é do PC para o DHT11.
+- O sinal `dout` é configurado para `1'b0`, indicando um valor a ser enviado para o DHT11.
+- Contadores e registradores são inicializados.
 
-#### s2 - Start Signal: 
-- Após a detecção de `start`, o módulo espera 19 ms antes de iniciar a comunicação com o sensor. Depois disso, ele muda para o estado `s3`.
+#### Estado s2 - Contagem de Tempo para Nível Baixo: 
+- Neste estado, a máquina de estados conta o tempo em que o sinal de `dout` está em nível baixo.
+- O contador `cnt` é usado para contar até 19000 ciclos de clock, o que corresponde a 19 ms.
+- Quando o contador atinge esse valor, a máquina de estados avança para o próximo estado (`s3`).
 
-#### s3 - Data Request: 
-- Agora, o módulo aguarda mais um período de tempo (20-40 µs) antes de liberar o barramento de dados para leitura pelo sensor DHT11. Ele entra em `s4` após esse intervalo de tempo.
+#### Estado s3 - Contagem de Tempo em Nível Alto: 
+- Aqui, a máquina de estados conta o tempo em que o sinal `dout` está em nível alto.
+- O contador `cnt` é usado para contar até 20 ciclos de clock, correspondendo a 20 µs.
+- Quando o contador atinge esse valor, a máquina de estados avança para o próximo estado (`s4`).
 
-#### s4 - Data Response: 
-- O módulo aguarda a resposta do sensor indicando que está pronto para transmitir dados. Quando a resposta é detectada, ele muda para o estado `s5`.
+#### Estado s4 - Preparação para Receber Resposta do DHT11: 
+- Neste estado, a máquina de estados está pronta para receber a resposta do DHT11.
+- Ela verifica se o sinal de entrada `din` é baixo (`1'b0`). Se sim, transita para o próximo estado (`s5`).
+- Se o sinal `din` permanecer alto por muito tempo (mais de 65500 ciclos de clock), um erro é detectado, e a máquina de estados vai para o estado `STOP`.
 
-#### s5 - Data Transmission: 
-- O módulo recebe os bits de dados do sensor DHT11. Ele detecta transações de bits e registra os valores recebidos no registrador `data_buf`.
+#### Estado s5 - Aguardando Resposta em Nível Baixo: 
+- Este estado aguarda o sinal `din` entrar em nível alto, indicando o início da resposta do DHT11.
+- Se o sinal `din` subir, a máquina de estados transita para o próximo estado (`s6`).
+- Da mesma forma que no estado anterior, um tempo muito longo em nível baixo gera um erro e mudança para o estado `STOP`.
 
-#### s6 - Data Bit Start Detection: 
-- Neste estado, o módulo aguarda o início do próximo bit de dados. Ele monitora o sinal de entrada `din` e aguarda até que ocorra uma transição de `din` de 1 (baixo) para 0 (alto), o que indica o início de um novo bit de dados. Assim que essa transição é detectada, o módulo muda para o estado `s7`.
+#### Estado s6 - Aguardando Resposta em Nível Alto: 
+- Aqui, a máquina de estados aguarda o sinal `din` entrar em nível baixo novamente, indicando o início da transmissão de dados pelo DHT11.
+- Se o sinal `din` entrar em nível baixo, a máquina de estados transita para o próximo estado (`s7`).
+- Um tempo muito longo em nível alto gera um erro e transição para `STOP`.
 
-#### s7 - Data Bit Reception: 
-- Neste estado, o módulo está na posição correta para receber os bits de dados. Ele monitora o sinal `din` e registra o valor de `din` no registrador `data_buf` à medida que os bits são recebidos. O registrador `data_cnt` é usado para rastrear quantos bits de dados já foram recebidos. O estado permanece em `s7` até que todos os 40 bits de dados tenham sido lidos, momento em que o módulo muda para o estado `s9`.
+#### Estado s7 - Início da Transmissão de Dados: 
+- Neste estado, a máquina de estados inicia a transmissão de dados pelo DHT11.
+- Ela verifica se o sinal `din` é alto (`1'b1`). Se for, a máquina de estados transita para o próximo estado (`s8`).
+- Novamente, um tempo muito longo em nível baixo gera um erro e transição para o estado `STOP`.
 
-#### s8 - Data Bit Validation: 
-- Neste estado, o módulo verifica a integridade dos bits de dados recebidos. Ele conta o tempo para determinar se a duração do sinal `din` representa um 0 lógico ou um 1 lógico. Os bits de dados válidos são registrados no `data_buf` e o `data_cnt` é incrementado. Se o tempo estiver dentro dos limites esperados, o valor do bit é considerado válido e é armazenado no `data_buf`. Se o tempo estiver fora dos limites esperados, pode indicar um erro nos dados recebidos. O módulo permanece em `s8` até que todos os 40 bits de dados tenham sido validados e registrados.
+#### Estado s8 - Recebendo Bits de Dados: 
+- Neste estado, a máquina de estados recebe os bits de dados transmitidos pelo DHT11.
+- Ela conta o tempo em que o sinal `din` permanece em nível alto e, dependendo desse tempo, atribui um valor de `0` ou `1` ao dado recebido. Caso o sinal passe um tempo muito longo em nível baixo, o sinal de erro é gerado e há transição para o estado `STOP`.
+- A máquina de estados continua a receber bits até que todos os 40 bits de dados tenham sido recebidos, então ela transita para o próximo estado (`s9`).
 
-#### s9 - Data Reception Complete: 
-- Após a recepção dos 40 bits de dados, o módulo verifica se os dados são válidos (checksum). Se os dados forem válidos, eles são armazenados no barramento `data` e o módulo fica pronto para iniciar outra leitura. Caso contrário, pode entrar em um estado de erro.
+#### Estado s9 - Finalização da Recepção de Dados: 
+- Neste estado, a máquina de estados armazena os dados recebidos no registrador `data`.
+- Ela verifica se o sinal `din` é alto (`1'b1`). Se sim, a máquina de estados transita para o próximo estado (`s10`). Senão, caso passe um tempo maior que o devido em nível baixo, é gerado um sinal de erro e o estado é transitado para `STOP`.
 
-#### STOP - Stop State: 
-- Este estado é usado para garantir um intervalo de 5 segundos entre as leituras dos sensores para evitar leituras excessivas. Após 5 segundos, o módulo volta ao estado `s1` para iniciar uma nova leitura.
+#### Estado s10 - Fim da Comunicação:
+- Neste estado, a máquina de estados indica que a comunicação foi concluída e que os dados foram recebidos com sucesso.
+- Ela configura o sinal `error_reg` para `1'b0` para indicar a ausência de erros e encaminha para o próximo estado (`STOP`).
+
+#### Estado STOP - Gerenciamento de Erros e Cooldown: 
+- Estado final de todo o processo de leitura, sendo tanto para quando há alguma detecção de erro quanto para leituras bem sucedidas.
+- O sinal `error_reg` é conservado desde quando tiver sido definido. Ou seja, se tiver ocorrido um erro, o sinal `error_reg` permanecerá `1'b1` para indicar o erro, senão permanecerá `1’b0` tal como definido pelo estado `s10`.
+- A máquina de estados aguarda um período de cooldown de 5 segundos antes de configurar o sinal `done_reg` para nível alto e de retornar ao estado inicial (`s1`).
+
 
 <div align=center>
 
@@ -462,3 +493,9 @@ Figura 12 - Relatório de uso da FPGA
 
 - A partir dos testes realizados, foi possível comprovar o funcionamento do sistema como se era esperado. As respostas eram sempre recebidas no devido tempo definido, e os resultados demonstrados eram consistentes e condizentes com o ambiente de testes. Além disso, todos os devidos bytes de envio previstos no protocolo foram corretamente recebidos no computador.
 Dessa forma, é possível afirmar que o projeto cumpre ao que se promete, atendendo aos requisitos propostos pelo texto problema. Com o projeto em questão, é possível realizar diferentes requisições de medidas e respostas para a FPGA, que, por sua vez, consegue entregar os devidos resultados coletados do sensor DHT11 de volta para o computador.
+
+## Referências
+- Módulo DHT11 original: https://www.kancloud.cn/dlover/fpga/1637659
+- DHT11 Datasheet: https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf
+- Manual Mercurio IV Devkit: https://www.macnicadhw.com.br/sites/default/files/documents/downloads/manual_mercurioiv_v2.pdf
+- Repositório com módulos UART originais: https://github.com/jamieiles/uart/tree/master
