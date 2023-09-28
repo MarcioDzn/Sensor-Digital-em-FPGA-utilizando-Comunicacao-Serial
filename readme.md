@@ -54,7 +54,7 @@ Este repositório é o resultado do trabalho de uma equipe de estudantes para cr
 
 ## Protocolo:
 
-O protocolo de comunicação projetado para este projeto possui como base as duas tabelas a seguir, que representam, respectivamente, os comandos de requisição e de resposta.
+O protocolo de comunicação projetado para este projeto possui como base as duas tabelas a seguir, que representam, respectivamente, os comandos de requisição e de resposta. Os códigos de endereço de sensor foram planejados para serem representados em códigos hexadecimais de 0x00 a 0x1F, podendo assim simbolizar até 32 sensores diferentes.
 
 </br>
 <div align=center>
@@ -76,7 +76,7 @@ O protocolo de comunicação projetado para este projeto possui como base as dua
   
 ### Envio Computador -> FPGA
 - Enviados 2 bytes, em ordem: 1 byte de instrução + 1 byte de endereço.
-- Exemplo: (requisição de status): [0x00], [Endereço do sensor].
+- Exemplo: (requisição de status): [0x00], [0x00].
 
 
 ### Envio FPGA -> Computador
