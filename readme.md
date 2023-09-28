@@ -486,7 +486,7 @@ Figura 11 - Solicitação da interrupção da medida de temperatura continua na 
 
 ![image](https://github.com/MarcioDzn/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/assets/91295529/a429c3aa-cdfa-4dff-97d3-5cf0bd49f499)
 </br>
-Figura 12 - Relatório de uso da FPGA
+Figura 12 - Relatório de uso da FPGA.
 </br>
 </div>
 
