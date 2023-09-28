@@ -2,25 +2,25 @@
 clk => clk.IN4
 pc_in => pc_in.IN1
 dht <> DHT11:SENSOR.dat_io
-pc_out <= uart:UART.tx
-state[0] <= main_state_machine:MAQUINA_ESTADOS.state
-state[1] <= main_state_machine:MAQUINA_ESTADOS.state
-ebyte1[0] <= byte1[0].DB_MAX_OUTPUT_PORT_TYPE
-ebyte1[1] <= byte1[1].DB_MAX_OUTPUT_PORT_TYPE
-ebyte1[2] <= byte1[2].DB_MAX_OUTPUT_PORT_TYPE
-ebyte1[3] <= byte1[3].DB_MAX_OUTPUT_PORT_TYPE
-ebyte1[4] <= byte1[4].DB_MAX_OUTPUT_PORT_TYPE
-ebyte1[5] <= byte1[5].DB_MAX_OUTPUT_PORT_TYPE
-ebyte1[6] <= byte1[6].DB_MAX_OUTPUT_PORT_TYPE
-ebyte1[7] <= byte1[7].DB_MAX_OUTPUT_PORT_TYPE
-ebyte2[0] <= byte2[0].DB_MAX_OUTPUT_PORT_TYPE
-ebyte2[1] <= byte2[1].DB_MAX_OUTPUT_PORT_TYPE
-ebyte2[2] <= byte2[2].DB_MAX_OUTPUT_PORT_TYPE
-ebyte2[3] <= byte2[3].DB_MAX_OUTPUT_PORT_TYPE
-ebyte2[4] <= byte2[4].DB_MAX_OUTPUT_PORT_TYPE
-ebyte2[5] <= byte2[5].DB_MAX_OUTPUT_PORT_TYPE
-ebyte2[6] <= byte2[6].DB_MAX_OUTPUT_PORT_TYPE
-ebyte2[7] <= byte2[7].DB_MAX_OUTPUT_PORT_TYPE
+pc_out << uart:UART.tx
+state[0] << main_state_machine:MAQUINA_ESTADOS.state
+state[1] << main_state_machine:MAQUINA_ESTADOS.state
+ebyte1[0] << byte1[0].DB_MAX_OUTPUT_PORT_TYPE
+ebyte1[1] << byte1[1].DB_MAX_OUTPUT_PORT_TYPE
+ebyte1[2] << byte1[2].DB_MAX_OUTPUT_PORT_TYPE
+ebyte1[3] << byte1[3].DB_MAX_OUTPUT_PORT_TYPE
+ebyte1[4] << byte1[4].DB_MAX_OUTPUT_PORT_TYPE
+ebyte1[5] << byte1[5].DB_MAX_OUTPUT_PORT_TYPE
+ebyte1[6] << byte1[6].DB_MAX_OUTPUT_PORT_TYPE
+ebyte1[7] << byte1[7].DB_MAX_OUTPUT_PORT_TYPE
+ebyte2[0] << byte2[0].DB_MAX_OUTPUT_PORT_TYPE
+ebyte2[1] << byte2[1].DB_MAX_OUTPUT_PORT_TYPE
+ebyte2[2] << byte2[2].DB_MAX_OUTPUT_PORT_TYPE
+ebyte2[3] << byte2[3].DB_MAX_OUTPUT_PORT_TYPE
+ebyte2[4] << byte2[4].DB_MAX_OUTPUT_PORT_TYPE
+ebyte2[5] << byte2[5].DB_MAX_OUTPUT_PORT_TYPE
+ebyte2[6] << byte2[6].DB_MAX_OUTPUT_PORT_TYPE
+ebyte2[7] << byte2[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |main|uart:UART

@@ -1,6 +1,6 @@
 Analysis & Synthesis report for SensorDigital
-Mon Sep 25 22:49:17 2023
-Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Wed Sep 27 21:08:30 2023
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
 ---------------------
@@ -36,7 +36,7 @@ Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2022  Intel Corporation. All rights reserved.
+Copyright (C) 2023  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -56,8 +56,8 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Sep 25 22:49:17 2023          ;
-; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Wed Sep 27 21:08:30 2023          ;
+; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; SensorDigital                                  ;
 ; Top-level Entity Name              ; main                                           ;
 ; Family                             ; Cyclone IV E                                   ;
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                           ; EP4CE40F23C7       ;                    ;
+; Device                                                           ; EP4CE30F23C7       ;                    ;
 ; Top-level entity name                                            ; main               ; SensorDigital      ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
@@ -177,24 +177,24 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                               ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                                 ; Library ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
-; baud_rate_gen.v                  ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/baud_rate_gen.v      ;         ;
-; receiver.v                       ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/receiver.v           ;         ;
-; transmitter.v                    ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/transmitter.v        ;         ;
-; uart.v                           ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v               ;         ;
-; data_selector.v                  ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/data_selector.v      ;         ;
-; DHT11.v                          ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v              ;         ;
-; instr_decoder.v                  ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v      ;         ;
-; main.v                           ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v               ;         ;
-; main_state_machine.v             ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main_state_machine.v ;         ;
-; packer.v                         ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/packer.v             ;         ;
-; request_separator.v              ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/request_separator.v  ;         ;
-; send_pc.v                        ; yes             ; User Verilog HDL File  ; C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/send_pc.v            ;         ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                      ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                        ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
+; baud_rate_gen.v                  ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/baud_rate_gen.v      ;         ;
+; receiver.v                       ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/receiver.v           ;         ;
+; transmitter.v                    ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/transmitter.v        ;         ;
+; uart.v                           ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v               ;         ;
+; data_selector.v                  ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/data_selector.v      ;         ;
+; DHT11.v                          ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v              ;         ;
+; instr_decoder.v                  ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v      ;         ;
+; main.v                           ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v               ;         ;
+; main_state_machine.v             ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main_state_machine.v ;         ;
+; packer.v                         ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/packer.v             ;         ;
+; request_separator.v              ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/request_separator.v  ;         ;
+; send_pc.v                        ; yes             ; User Verilog HDL File  ; C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/send_pc.v            ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------------+
@@ -482,61 +482,61 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Mon Sep 25 22:49:07 2023
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+    Info: Processing started: Wed Sep 27 21:08:19 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SensorDigital -c SensorDigital
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file baud_rate_gen.v
-    Info (12023): Found entity 1: baud_rate_gen File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/baud_rate_gen.v Line: 23
+    Info (12023): Found entity 1: baud_rate_gen File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/baud_rate_gen.v Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file receiver.v
-    Info (12023): Found entity 1: receiver File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/receiver.v Line: 15
+    Info (12023): Found entity 1: receiver File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/receiver.v Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file transmitter.v
-    Info (12023): Found entity 1: transmitter File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/transmitter.v Line: 15
+    Info (12023): Found entity 1: transmitter File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/transmitter.v Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file uart.v
-    Info (12023): Found entity 1: uart File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 18
+    Info (12023): Found entity 1: uart File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 18
 Info (12021): Found 1 design units, including 1 entities, in source file data_selector.v
-    Info (12023): Found entity 1: data_selector File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/data_selector.v Line: 1
+    Info (12023): Found entity 1: data_selector File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/data_selector.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file dht11.v
-    Info (12023): Found entity 1: DHT11 File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 17
+    Info (12023): Found entity 1: DHT11 File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 17
 Info (12021): Found 1 design units, including 1 entities, in source file instr_decoder.v
-    Info (12023): Found entity 1: instr_decoder File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v Line: 9
+    Info (12023): Found entity 1: instr_decoder File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file main.v
-    Info (12023): Found entity 1: main File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 1
+    Info (12023): Found entity 1: main File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file main_state_machine.v
-    Info (12023): Found entity 1: main_state_machine File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main_state_machine.v Line: 10
+    Info (12023): Found entity 1: main_state_machine File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main_state_machine.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file packer.v
-    Info (12023): Found entity 1: packer File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/packer.v Line: 1
+    Info (12023): Found entity 1: packer File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/packer.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file request_separator.v
-    Info (12023): Found entity 1: request_separator File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/request_separator.v Line: 6
+    Info (12023): Found entity 1: request_separator File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/request_separator.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file send_pc.v
-    Info (12023): Found entity 1: send_pc File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/send_pc.v Line: 1
+    Info (12023): Found entity 1: send_pc File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/send_pc.v Line: 8
 Info (12127): Elaborating entity "main" for the top level hierarchy
-Info (12128): Elaborating entity "uart" for hierarchy "uart:UART" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 28
-Info (12128): Elaborating entity "baud_rate_gen" for hierarchy "uart:UART|baud_rate_gen:uart_baud" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 34
-Info (12128): Elaborating entity "transmitter" for hierarchy "uart:UART|transmitter:uart_tx" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 41
-Info (12128): Elaborating entity "receiver" for hierarchy "uart:UART|receiver:uart_rx" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 48
-Info (12128): Elaborating entity "DHT11" for hierarchy "DHT11:SENSOR" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 42
-Warning (10230): Verilog HDL assignment warning at DHT11.v(101): truncated value with size 32 to match size of target (6) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 101
-Warning (10230): Verilog HDL assignment warning at DHT11.v(254): truncated value with size 41 to match size of target (40) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 254
-Warning (10230): Verilog HDL assignment warning at DHT11.v(257): truncated value with size 41 to match size of target (40) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 257
-Warning (10230): Verilog HDL assignment warning at DHT11.v(307): truncated value with size 32 to match size of target (23) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 307
-Info (12128): Elaborating entity "instr_decoder" for hierarchy "instr_decoder:DECODIFICADOR" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 49
-Warning (10230): Verilog HDL assignment warning at instr_decoder.v(24): truncated value with size 32 to match size of target (1) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v Line: 24
-Warning (10230): Verilog HDL assignment warning at instr_decoder.v(30): truncated value with size 32 to match size of target (1) File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v Line: 30
-Info (12128): Elaborating entity "request_separator" for hierarchy "request_separator:SEPARADOR" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 58
-Info (12128): Elaborating entity "main_state_machine" for hierarchy "main_state_machine:MAQUINA_ESTADOS" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 71
-Info (12128): Elaborating entity "data_selector" for hierarchy "data_selector:SELETOR" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 82
-Info (12128): Elaborating entity "packer" for hierarchy "packer:ORGANIZADOR" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 95
-Info (12128): Elaborating entity "send_pc" for hierarchy "send_pc:ENVIA_PC" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 107
+Info (12128): Elaborating entity "uart" for hierarchy "uart:UART" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 34
+Info (12128): Elaborating entity "baud_rate_gen" for hierarchy "uart:UART|baud_rate_gen:uart_baud" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 34
+Info (12128): Elaborating entity "transmitter" for hierarchy "uart:UART|transmitter:uart_tx" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 41
+Info (12128): Elaborating entity "receiver" for hierarchy "uart:UART|receiver:uart_rx" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/uart.v Line: 48
+Info (12128): Elaborating entity "DHT11" for hierarchy "DHT11:SENSOR" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 47
+Warning (10230): Verilog HDL assignment warning at DHT11.v(101): truncated value with size 32 to match size of target (6) File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 101
+Warning (10230): Verilog HDL assignment warning at DHT11.v(254): truncated value with size 41 to match size of target (40) File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 254
+Warning (10230): Verilog HDL assignment warning at DHT11.v(257): truncated value with size 41 to match size of target (40) File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 257
+Warning (10230): Verilog HDL assignment warning at DHT11.v(307): truncated value with size 32 to match size of target (23) File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 307
+Info (12128): Elaborating entity "instr_decoder" for hierarchy "instr_decoder:DECODIFICADOR" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 53
+Warning (10230): Verilog HDL assignment warning at instr_decoder.v(26): truncated value with size 32 to match size of target (1) File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v Line: 26
+Warning (10230): Verilog HDL assignment warning at instr_decoder.v(32): truncated value with size 32 to match size of target (1) File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/instr_decoder.v Line: 32
+Info (12128): Elaborating entity "request_separator" for hierarchy "request_separator:SEPARADOR" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 62
+Info (12128): Elaborating entity "main_state_machine" for hierarchy "main_state_machine:MAQUINA_ESTADOS" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 75
+Info (12128): Elaborating entity "data_selector" for hierarchy "data_selector:SELETOR" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 86
+Info (12128): Elaborating entity "packer" for hierarchy "packer:ORGANIZADOR" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 97
+Info (12128): Elaborating entity "send_pc" for hierarchy "send_pc:ENVIA_PC" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/main.v Line: 109
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (13000): Registers with preset signals will power-up high File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 32
+Info (13000): Registers with preset signals will power-up high File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/DHT11.v Line: 32
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "request_separator:SEPARADOR|DONE_OUT" is converted into an equivalent circuit using register "request_separator:SEPARADOR|DONE_OUT~_emulated" and latch "request_separator:SEPARADOR|DONE_OUT~1" File: C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/request_separator.v Line: 14
+    Warning (13310): Register "request_separator:SEPARADOR|DONE_OUT" is converted into an equivalent circuit using register "request_separator:SEPARADOR|DONE_OUT~_emulated" and latch "request_separator:SEPARADOR|DONE_OUT~1" File: C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/request_separator.v Line: 18
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 6 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/output_files/SensorDigital.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/output_files/SensorDigital.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 440 device resources after synthesis - the final resource count might be different
@@ -545,15 +545,15 @@ Info (21057): Implemented 440 device resources after synthesis - the final resou
     Info (21060): Implemented 1 bidirectional pins
     Info (21061): Implemented 418 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 4827 megabytes
-    Info: Processing ended: Mon Sep 25 22:49:17 2023
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Peak virtual memory: 4818 megabytes
+    Info: Processing ended: Wed Sep 27 21:08:30 2023
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:16
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/User/Desktop/UEFS/QuartoSemestre/SD/PBL01/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/output_files/SensorDigital.map.smsg.
+The suppressed messages can be found in C:/Users/vitin/OneDrive/Documentos/GitHub/Sensor-Digital-em-FPGA-utilizando-Comunicacao-Serial/output_files/SensorDigital.map.smsg.
 
 
